@@ -1,13 +1,17 @@
 import React from "react";
+import { ReactComponent as Logo } from "../../images/logo.svg";
 
 //styles
 import { Wrapper, Content } from "./HomeNavbar.styles";
 
-const HomeNavbar = () => {
+const HomeNavbar = ({ title }) => {
    return (
       <Wrapper>
          <Content>
-            <h1>Godman School Transports</h1>
+            <Logo
+               alt={title}
+               style={{ maxWidth: "12rem", maxHeight: "4rem" }}
+            />
          </Content>
       </Wrapper>
    );

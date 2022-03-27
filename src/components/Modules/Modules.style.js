@@ -2,19 +2,34 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
    max-width: var(--maxWidth);
-   margin: 0 auto;
-   padding: 0 30%;
+   display: inline;
+
+   @media screen and (max-width: 700px) {
+      margin: 0 auto;
+      padding: 0 auto;
+      display: block;
+   }
 `;
 export const Content = styled.div`
+   display: flex;
+   justify-content: center;
+   @media screen and (max-width: 700px) {
+      display: block;
+      align-items: center;
+      padding: 0 24%;
+   }
+
    div {
       width: 250px;
       height: 250px;
-      border-radius: 20px;
+      border-radius: 40px;
       background-color: var(--medGrey);
-      text-align: center;
-      justify-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       animation: animateModules 1s;
-
+      margin: 40px 30px;
+      float: left;
       :hover {
          opacity: 0.8;
       }
@@ -27,16 +42,15 @@ export const Content = styled.div`
             opacity: 1;
          }
       }
-      h1 {
-         padding-top: 100px;
-      }
-      @media screen and (max-width: 500px) {
+
+      @media screen and (max-width: 600px) {
          height: 200px;
          width: 200px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin: 20px 20px;
          font-size: var(--fontSmall);
-         h1 {
-            padding-top: 80px;
-         }
       }
    }
 `;
