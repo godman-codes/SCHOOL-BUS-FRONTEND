@@ -1,7 +1,12 @@
 import React from "react";
+import Home from "./components/Home";
+import { GlobalStyle } from "./GlobalStyles";
 
-function App() {
-   return <div className="App">START HERE</div>;
-}
+const App = () => (
+   <>
+      <Home />
+      <GlobalStyle />
+   </>
+);
 
 export default App;
