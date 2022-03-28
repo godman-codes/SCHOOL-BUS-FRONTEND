@@ -5,7 +5,7 @@ import Modules from "./Modules";
 const Home = () => {
    return (
       <>
-         <HomeNavbar />
+         <HomeNavbar title="Godman Transports" />
          <Modules />
       </>
    );
