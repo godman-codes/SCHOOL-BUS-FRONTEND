@@ -11,12 +11,12 @@ const Modules = () => (
                <h1>Admin</h1>
             </div>
          </Link>
-         <Link to="/Driver_register">
+         <Link to="/Driver_Login">
             <div className="Driver">
                <h1>Driver</h1>
             </div>
          </Link>
-         <Link to="/Parent_register">
+         <Link to="/Parent_Login">
             <div className="Parent">
                <h1>Parent</h1>
             </div>
