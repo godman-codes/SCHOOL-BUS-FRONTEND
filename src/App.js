@@ -5,6 +5,7 @@ import AdminLogin from "./Admin/AdminLogin";
 import ParentLogin from "./Parent/ParentLogin";
 import DriverLogin from "./Driver/DriverLogin";
 import AdminWorkspace from "./Admin/AdminWorkspace";
+import DriverWorkspace from "./Driver/DriverWorkspace";
 import { GlobalStyle } from "./GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -18,6 +19,7 @@ const App = () => (
             <Route path="/parent_login" element={<ParentLogin />} />
             <Route path="/driver_login" element={<DriverLogin />} />
             <Route path="/admin_workspace" element={<AdminWorkspace />} />
+            <Route path="/driver_workspace" element={<DriverWorkspace />} />
          </Routes>
          <GlobalStyle />
       </>
