@@ -36,3 +36,21 @@ import {
    GET_DRIVER_REFRESH_TOKEN,
    GET_PARENT_REFRESH_TOKEN,
 } from "./config";
+
+const apiSetting = {
+   LoginAdmin: async (body) =>
+      fetch(`${LOGIN_ADMIN}`, {
+         method: "Post",
+         body: body,
+         header: { "Content-Type": "application/x-www-form-urlencoded" },
+      })
+         .then(function (res) {
+            return res.json;
+         })
+         .then(function (body) {
+            console.log(body);
+            return body;
+         }),
+};
+
+export default apiSetting;
