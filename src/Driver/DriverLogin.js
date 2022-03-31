@@ -12,7 +12,7 @@ const DriverLogin = () => {
    const navigate = useNavigate();
 
    const handleLogin = async (body) => {
-      const loginDriverToken = await API.LoginDriver(body);
+      const loginDriverToken = await API.loginDriver(body);
       console.log(loginDriverToken);
       if (loginDriverToken.driver) {
          setError(false);

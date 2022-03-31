@@ -48,7 +48,7 @@ const apiSetting = {
       ).json();
       return fetchLogin;
    },
-   LoginDriver: async (body) => {
+   loginDriver: async (body) => {
       const fetchLogin = await (
          await fetch(`${LOGIN_DRIVER}`, {
             method: "POST",
@@ -58,7 +58,7 @@ const apiSetting = {
       ).json();
       return fetchLogin;
    },
-   LoginParent: async (body) => {
+   loginParent: async (body) => {
       const fetchLogin = await (
          await fetch(`${LOGIN_PARENT}`, {
             method: "POST",
