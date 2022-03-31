@@ -38,19 +38,36 @@ import {
 } from "./config";
 
 const apiSetting = {
-   LoginAdmin: async (body) =>
-      fetch(`${LOGIN_ADMIN}`, {
-         method: "Post",
-         body: body,
-         header: { "Content-Type": "application/x-www-form-urlencoded" },
-      })
-         .then(function (res) {
-            return res.json;
+   loginAdmin: async (body) => {
+      const fetchLogin = await (
+         await fetch(`${LOGIN_ADMIN}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
          })
-         .then(function (body) {
-            console.log(body);
-            return body;
-         }),
+      ).json();
+      return fetchLogin;
+   },
+   LoginDriver: async (body) => {
+      const fetchLogin = await (
+         await fetch(`${LOGIN_DRIVER}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+         })
+      ).json();
+      return fetchLogin;
+   },
+   LoginParent: async (body) => {
+      const fetchLogin = await (
+         await fetch(`${LOGIN_PARENT}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+         })
+      ).json();
+      return fetchLogin;
+   },
 };
 
 export default apiSetting;
