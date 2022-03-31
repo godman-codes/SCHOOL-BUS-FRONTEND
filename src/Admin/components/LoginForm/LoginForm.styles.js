@@ -35,6 +35,14 @@ export const Wrapper = styled.div`
          }
       }
    }
+   @media screen and (max-width: 400px) {
+      width: 100%;
+      div {
+         margin: 0;
+         width: 100%;
+         padding-left: 0;
+      }
+   }
 `;
 export const Content = styled.div`
    width: 600px;
@@ -57,7 +65,7 @@ export const Content = styled.div`
          border: 1px solid var(--darkGrey);
       }
    }
-   @media screen and (max-width: 500px) {
+   @media screen and (max-width: 550px) {
       width: 80%;
       display: block;
       h1 {
@@ -65,9 +73,27 @@ export const Content = styled.div`
          color: var(--darkGrey);
       }
       div {
+         justify-items: center;
+         justify-content: center;
+         align-items: center;
+         display: flex;
          label {
             margin: 5px 4px;
             font-size: 15px;
+         }
+      }
+   }
+   @media screen and (max-width: 420px) {
+      margin: 3px;
+      padding: 4px;
+      div {
+         justify-items: center;
+         justify-content: center;
+         align-items: center;
+         display: flex;
+         width: 100%;
+         input {
+            width: auto;
          }
       }
    }
