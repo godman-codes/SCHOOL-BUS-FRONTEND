@@ -13,29 +13,32 @@ import RegisterChild from "./Admin/Register/RegisterChild";
 import RegisterBus from "./Admin/Register/RegisterBus";
 import RegisterRoute from "./Admin/Register/RegisterRoute";
 import RegisterTrip from "./Admin/Register/RegisterTrip";
+import UserProvider from "./Context";
 import { GlobalStyle } from "./GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => (
    <Router>
       <>
-         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/admin_register" element={<AdminRegister />} />
-            <Route path="/admin_login" element={<AdminLogin />} />
-            <Route path="/parent_login" element={<ParentLogin />} />
-            <Route path="/driver_login" element={<DriverLogin />} />
-            <Route path="/admin_workspace" element={<AdminWorkspace />} />
-            <Route path="/driver_workspace" element={<DriverWorkspace />} />
-            <Route path="/parent_dashboard" element={<ParentDashboard />} />
-            <Route path="/register_parent" element={<ParentRegister />} />
-            <Route path="/register_driver" element={<RegisterDriver />} />
-            <Route path="/register_child" element={<RegisterChild />} />
-            <Route path="/register_bus" element={<RegisterBus />} />
-            <Route path="/register_route" element={<RegisterRoute />} />
-            <Route path="/register_trip" element={<RegisterTrip />} />
-         </Routes>
-         <GlobalStyle />
+         <UserProvider>
+            <Routes>
+               <Route path="/" element={<Home />} />
+               <Route path="/admin_register" element={<AdminRegister />} />
+               <Route path="/admin_login" element={<AdminLogin />} />
+               <Route path="/parent_login" element={<ParentLogin />} />
+               <Route path="/driver_login" element={<DriverLogin />} />
+               <Route path="/admin_workspace" element={<AdminWorkspace />} />
+               <Route path="/driver_workspace" element={<DriverWorkspace />} />
+               <Route path="/parent_dashboard" element={<ParentDashboard />} />
+               <Route path="/register_parent" element={<ParentRegister />} />
+               <Route path="/register_driver" element={<RegisterDriver />} />
+               <Route path="/register_child" element={<RegisterChild />} />
+               <Route path="/register_bus" element={<RegisterBus />} />
+               <Route path="/register_route" element={<RegisterRoute />} />
+               <Route path="/register_trip" element={<RegisterTrip />} />
+            </Routes>
+            <GlobalStyle />
+         </UserProvider>
       </>
    </Router>
 );
