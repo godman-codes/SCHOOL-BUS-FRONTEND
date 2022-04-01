@@ -11,6 +11,7 @@ import ParentRegister from "./Admin/Register/RegisterParent";
 import RegisterDriver from "./Admin/Register/RegisterDriver";
 import RegisterChild from "./Admin/Register/RegisterChild";
 import RegisterBus from "./Admin/Register/RegisterBus";
+import RegisterRoute from "./Admin/Register/RegisterRoute";
 import { GlobalStyle } from "./GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/register_driver" element={<RegisterDriver />} />
             <Route path="/register_child" element={<RegisterChild />} />
             <Route path="/register_bus" element={<RegisterBus />} />
+            <Route path="/register_route" element={<RegisterRoute />} />
          </Routes>
          <GlobalStyle />
       </>

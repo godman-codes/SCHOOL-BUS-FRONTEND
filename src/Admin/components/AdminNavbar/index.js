@@ -74,7 +74,10 @@ const AdminNavbar = ({ title }) => {
                            </Link>
                         </li>
                         <li>
-                           <Link to="/" style={{ textDecoration: "none" }}>
+                           <Link
+                              to="/register_route"
+                              style={{ textDecoration: "none" }}
+                           >
                               <p>Routes</p>
                            </Link>
                         </li>
