@@ -68,11 +68,16 @@ const apiSetting = {
       ).json();
       return fetchLogin;
    },
-   registerParent: async (body) => {
+   registerParent: async (body, bearer) => {
       const fetchRegister = await (
          await fetch(`${REGISTER_PARENT}`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: bearer,
+               "Content-Type": "application/json",
+            },
             body: JSON.stringify(body),
          })
       ).json();
