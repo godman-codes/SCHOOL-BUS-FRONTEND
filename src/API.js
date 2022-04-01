@@ -68,6 +68,66 @@ const apiSetting = {
       ).json();
       return fetchLogin;
    },
+   registerParent: async (body) => {
+      const fetchRegister = await (
+         await fetch(`${REGISTER_PARENT}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+         })
+      ).json();
+      return fetchRegister;
+   },
+   registerDriver: async (body) => {
+      const fetchRegister = await (
+         await fetch(`${REGISTER_DRIVER}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+         })
+      ).json();
+      return fetchRegister;
+   },
+   registerBus: async (body) => {
+      const fetchRegister = await (
+         await fetch(`${REGISTER_BUS}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+         })
+      ).json();
+      return fetchRegister;
+   },
+   registerRoute: async (body) => {
+      const fetchRegister = await (
+         await fetch(`${REGISTER_ROUTES}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+         })
+      ).json();
+      return fetchRegister;
+   },
+   registerChild: async (body) => {
+      const fetchRegister = await (
+         await fetch(`${REGISTER_CHILD}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+         })
+      ).json();
+      return fetchRegister;
+   },
+   registerTrip: async (body) => {
+      const fetchRegister = await (
+         await fetch(`${REGISTER_TRIP}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+         })
+      ).json();
+      return fetchRegister;
+   },
 };
 
 export default apiSetting;
