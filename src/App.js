@@ -12,6 +12,7 @@ import RegisterDriver from "./Admin/Register/RegisterDriver";
 import RegisterChild from "./Admin/Register/RegisterChild";
 import RegisterBus from "./Admin/Register/RegisterBus";
 import RegisterRoute from "./Admin/Register/RegisterRoute";
+import RegisterTrip from "./Admin/Register/RegisterTrip";
 import { GlobalStyle } from "./GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -32,6 +33,7 @@ const App = () => (
             <Route path="/register_child" element={<RegisterChild />} />
             <Route path="/register_bus" element={<RegisterBus />} />
             <Route path="/register_route" element={<RegisterRoute />} />
+            <Route path="/register_trip" element={<RegisterTrip />} />
          </Routes>
          <GlobalStyle />
       </>
