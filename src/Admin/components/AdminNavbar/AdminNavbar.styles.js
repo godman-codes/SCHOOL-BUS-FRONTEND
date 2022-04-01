@@ -21,6 +21,9 @@ export const Content = styled.div`
       float: left;
       display: block;
    }
+   a {
+      cursor: pointer;
+   }
    ul li {
       display: block;
    }

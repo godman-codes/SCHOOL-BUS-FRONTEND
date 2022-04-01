@@ -50,7 +50,9 @@ const DriverNavbar = ({ title }) => {
                      </Link>
                   </li>
                   <li className="primary-nav">
-                     <p>Logout</p>
+                     <Link to="/" style={{ textDecoration: "none" }}>
+                        <p>Logout</p>
+                     </Link>
                   </li>
                </ul>
                <div onClick={navToggle} className={icon}>
