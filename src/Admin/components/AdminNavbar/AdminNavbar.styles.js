@@ -66,7 +66,6 @@ export const Content = styled.div`
       transition: 0.3s ease-in;
    }
    @media screen and (max-width: 900px) {
-      display: block;
       justify-content: space-between;
       .nav_toggler {
          padding: 15px;
