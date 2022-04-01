@@ -12,6 +12,7 @@ export const Content = styled.div`
    align-items: center;
    justify-content: space-around;
    height: 80px;
+   z-index: 0;
    .nav_menu {
       padding: 0;
       margin: 0;
@@ -36,6 +37,7 @@ export const Content = styled.div`
          width: auto;
       }
       li ul {
+         position: fixed;
          display: none;
       }
       li:hover ul {

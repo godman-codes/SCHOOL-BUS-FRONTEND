@@ -10,6 +10,7 @@ import ParentDashboard from "./Parent/ParentDashBoard";
 import ParentRegister from "./Admin/Register/RegisterParent";
 import RegisterDriver from "./Admin/Register/RegisterDriver";
 import RegisterChild from "./Admin/Register/RegisterChild";
+import RegisterBus from "./Admin/Register/RegisterBus";
 import { GlobalStyle } from "./GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/register_parent" element={<ParentRegister />} />
             <Route path="/register_driver" element={<RegisterDriver />} />
             <Route path="/register_child" element={<RegisterChild />} />
+            <Route path="/register_bus" element={<RegisterBus />} />
          </Routes>
          <GlobalStyle />
       </>
