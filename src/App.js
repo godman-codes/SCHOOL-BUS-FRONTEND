@@ -8,6 +8,7 @@ import AdminWorkspace from "./Admin/AdminWorkspace";
 import DriverWorkspace from "./Driver/DriverWorkspace";
 import ParentDashboard from "./Parent/ParentDashBoard";
 import ParentRegister from "./Admin/Register/RegisterParent";
+import RegisterDriver from "./Admin/Register/RegisterDriver";
 import { GlobalStyle } from "./GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/driver_workspace" element={<DriverWorkspace />} />
             <Route path="/parent_dashboard" element={<ParentDashboard />} />
             <Route path="/register_parent" element={<ParentRegister />} />
+            <Route path="/register_driver" element={<RegisterDriver />} />
          </Routes>
          <GlobalStyle />
       </>

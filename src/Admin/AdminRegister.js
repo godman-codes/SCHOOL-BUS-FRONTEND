@@ -6,7 +6,7 @@ import RegisterForm from "./components/RegisterForm";
 const AdminRegister = () => {
    return (
       <>
-         <HomeNavbar />
+         <HomeNavbar title="Godman Transport" />
          <RegisterForm />
       </>
    );
