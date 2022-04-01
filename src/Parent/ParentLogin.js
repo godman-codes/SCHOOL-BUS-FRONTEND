@@ -11,15 +11,20 @@ const ParentLogin = () => {
    const navigate = useNavigate();
 
    const handleLogin = async (body) => {
-      const loginParentToken = await API.loginParent(body);
-      console.log(loginParentToken);
-      if (loginParentToken.parent) {
-         setError(false);
-         navigate("/parent_dashboard");
-         console.log(loginParentToken.parent);
-      } else {
+      try {
+         const loginParentToken = await API.loginParent(body);
+         console.log(loginParentToken);
+         if (loginParentToken.parent) {
+            setError(false);
+            navigate("/parent_dashboard");
+            console.log(loginParentToken.parent);
+         } else {
+            setError(true);
+            setErrorMessage(loginParentToken.error);
+         }
+      } catch (error) {
          setError(true);
-         setErrorMessage(loginParentToken.error);
+         setErrorMessage("server error");
       }
    };
    return (

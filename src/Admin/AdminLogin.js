@@ -12,15 +12,20 @@ const AdminLogin = () => {
    const navigate = useNavigate();
 
    const handleLogin = async (body) => {
-      const loginAdminToken = await API.loginAdmin(body);
-      console.log(loginAdminToken);
-      if (loginAdminToken.admin) {
-         setError(false);
-         navigate("/admin_workspace");
-         console.log(loginAdminToken.admin);
-      } else {
+      try {
+         const loginAdminToken = await API.loginAdmin(body);
+         console.log(loginAdminToken);
+         if (loginAdminToken.admin) {
+            setError(false);
+            navigate("/admin_workspace");
+            console.log(loginAdminToken.admin);
+         } else {
+            setError(true);
+            setErrorMessage(loginAdminToken.error);
+         }
+      } catch (error) {
          setError(true);
-         setErrorMessage(loginAdminToken.error);
+         setErrorMessage("server error");
       }
    };
    return (

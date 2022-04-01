@@ -12,16 +12,21 @@ const DriverLogin = () => {
    const navigate = useNavigate();
 
    const handleLogin = async (body) => {
-      const loginDriverToken = await API.loginDriver(body);
-      console.log(loginDriverToken);
-      if (loginDriverToken.driver) {
-         setError(false);
-         navigate("/driver_workspace");
-         console.log(loginDriverToken.driver);
-      } else {
+      try {
+         const loginDriverToken = await API.loginDriver(body);
+         console.log(loginDriverToken);
+         if (loginDriverToken.driver) {
+            setError(false);
+            navigate("/driver_workspace");
+            console.log(loginDriverToken.driver);
+         } else {
+            setError(true);
+            setErrorMessage((loginDriverToken.error = "Invalid Credentials"));
+            console.log(loginDriverToken.error);
+         }
+      } catch (error) {
          setError(true);
-         setErrorMessage((loginDriverToken.error = "Invalid Credentials"));
-         console.log(loginDriverToken.error);
+         setErrorMessage("server error");
       }
    };
    return (
