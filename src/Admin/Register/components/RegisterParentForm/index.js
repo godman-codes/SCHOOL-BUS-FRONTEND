@@ -1,33 +1,31 @@
 import React from "react";
 //styles
-import { Wrapper, Content } from "./RegisterForm.styles";
-import Button from "../../../components/Button";
-import { Link } from "react-router-dom";
+import {
+   Wrapper,
+   Content,
+} from "../../../components/RegisterForm/RegisterForm.styles";
+import Button from "../../../../components/Button";
 
-const RegisterForm = () => {
+const RegisterParentForm = () => {
    return (
       <Wrapper>
          <div>
-            <h1>Register</h1>
+            <h1>Register Parent</h1>
             <Content>
                <div>
-                  <label>School Name</label>
+                  <label>First Name</label>
                   <input type="text" />
                </div>
                <div>
-                  <label>School Location</label>
+                  <label>last Name</label>
                   <input type="text" />
                </div>
                <div>
-                  <label>Website</label>
-                  <input type="text" />
-               </div>
-               <div>
-                  <label>School Email</label>
+                  <label>Parent Email</label>
                   <input type="email" />
                </div>
                <div>
-                  <label>Admin ID</label>
+                  <label>Parent Phone</label>
                   <input type="text" />
                </div>
                <div>
@@ -39,14 +37,9 @@ const RegisterForm = () => {
                   <input type="password" />
                </div>
             </Content>
-            <div className="action-handler-1">
-               <p>
-                  Already registered <Link to="/admin_login">Login</Link>
-               </p>
-            </div>
-            <Button text="Register" />
+            <Button text="Register Parent" />
          </div>
       </Wrapper>
    );
 };
-export default RegisterForm;
+export default RegisterParentForm;

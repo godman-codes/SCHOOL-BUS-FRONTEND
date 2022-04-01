@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Wrapper, Content } from "./LoginForm.styles";
 import Button from "../../../components/Button";
+import { Link } from "react-router-dom";
 
 const LoginForm = ({ handler }) => {
    const [username, setUserName] = useState("");
@@ -47,7 +48,8 @@ const LoginForm = ({ handler }) => {
             </Content>
             <div className="action-handler-1">
                <p>
-                  Don't have an account <a href="/admin_register">Register</a>
+                  Don't have an account{" "}
+                  <Link to="/admin_register">Register</Link>
                </p>
             </div>
             <Button text="Login" callback={handleLogin} />
