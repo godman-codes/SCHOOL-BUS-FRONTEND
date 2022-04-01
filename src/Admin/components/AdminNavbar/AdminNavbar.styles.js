@@ -16,44 +16,45 @@ export const Content = styled.div`
       padding: 0;
       margin: 0;
       height: 70px;
-   }
-   .primary-nav {
-      float: left;
-      display: block;
+      li {
+         display: block;
+      }
+      li p {
+         text-decoration: none;
+         width: 150px;
+         font-size: 20px;
+         text-align: center;
+         padding: 5px;
+         border-radius: 10px;
+         font-weight: medium;
+         :hover {
+            background: var(--lightGrey);
+            color: black;
+         }
+      }
+      li ul li p {
+         width: auto;
+      }
+      li ul {
+         display: none;
+      }
+      li:hover ul {
+         padding: 2px;
+         display: block;
+         height: auto;
+         width: 150px;
+         background-color: var(--darkGrey);
+         border-radius: 0 0 10px 10px;
+      }
+      .primary-nav {
+         float: left;
+         display: block;
+      }
    }
    a {
       cursor: pointer;
    }
-   ul li {
-      display: block;
-   }
-   ul li p {
-      text-decoration: none;
-      width: 150px;
-      font-size: 20px;
-      text-align: center;
-      padding: 5px;
-      border-radius: 10px;
-      font-weight: medium;
-      :hover {
-         background: var(--lightGrey);
-         color: black;
-      }
-   }
-   ul li ul li p {
-      width: auto;
-   }
-   ul li ul {
-      display: none;
-   }
-   ul li:hover ul {
-      padding: 2px;
-      display: block;
-      height: auto;
-      width: 150px;
-      background-color: var(--darkGrey);
-      border-radius: 0 0 10px 10px;
-   }
+
    .nav_toggler {
       display: none;
    }
@@ -65,6 +66,7 @@ export const Content = styled.div`
       transition: 0.3s ease-in;
    }
    @media screen and (max-width: 900px) {
+      display: block;
       justify-content: space-between;
       .nav_toggler {
          padding: 15px;
@@ -81,26 +83,26 @@ export const Content = styled.div`
          flex-direction: column;
          transform: translateX(100%);
          transition: 0.5s ease-in;
+         li:hover ul {
+            border-radius: 10px;
+            background: white;
+         }
+         li:hover ul li:hover {
+            background: var(--darkGrey);
+            height: auto;
+            margin: 0;
+            padding: 0;
+         }
+         li:hover ul li p {
+            color: var(--darkGrey);
+         }
+         li:hover ul li p:hover {
+            background: var(--darkGrey);
+            color: var(--white);
+         }
       }
       .logo {
          padding: 15px;
-      }
-      ul li:hover ul {
-         border-radius: 10px;
-         background: white;
-      }
-      ul li:hover ul li:hover {
-         background: var(--darkGrey);
-         height: auto;
-         margin: 0;
-         padding: 0;
-      }
-      ul li:hover ul li p {
-         color: var(--darkGrey);
-      }
-      ul li:hover ul li p:hover {
-         background: var(--darkGrey);
-         color: var(--white);
       }
    }
    .nav_active {
