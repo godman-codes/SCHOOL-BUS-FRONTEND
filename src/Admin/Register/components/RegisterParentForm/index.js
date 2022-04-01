@@ -26,7 +26,7 @@ const RegisterParentForm = () => {
                </div>
                <div>
                   <label>Parent Phone</label>
-                  <input type="text" />
+                  <input type="tel" />
                </div>
                <div>
                   <label>Password</label>

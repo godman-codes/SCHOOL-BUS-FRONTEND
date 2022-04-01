@@ -26,7 +26,7 @@ const RegisterDriverForm = () => {
                </div>
                <div>
                   <label>Driver Phone</label>
-                  <input type="text" />
+                  <input type="tel" />
                </div>
                <div>
                   <label>Password</label>

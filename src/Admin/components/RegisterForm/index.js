@@ -20,7 +20,7 @@ const RegisterForm = () => {
                </div>
                <div>
                   <label>Website</label>
-                  <input type="text" />
+                  <input type="url" />
                </div>
                <div>
                   <label>School Email</label>
