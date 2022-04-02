@@ -30,6 +30,7 @@ const AdminLogin = () => {
          setErrorMessage("server error");
       }
    };
+   console.log(user);
    return (
       <>
          <HomeNavbar />

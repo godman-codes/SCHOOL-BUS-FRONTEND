@@ -37,7 +37,7 @@ const AdminNavbar = ({ title }) => {
                      </Link>
                   </li>
                   <li className="primary-nav">
-                     <Link to="/" style={{ textDecoration: "none" }}>
+                     <Link to="#" style={{ textDecoration: "none" }}>
                         <p>Register</p>
                      </Link>
                      <ul>
@@ -92,7 +92,7 @@ const AdminNavbar = ({ title }) => {
                      </ul>
                   </li>
                   <li className="primary-nav">
-                     <Link to="/" style={{ textDecoration: "none" }}>
+                     <Link to="#" style={{ textDecoration: "none" }}>
                         <p>Search</p>
                      </Link>
                      <ul>

@@ -75,7 +75,7 @@ const apiSetting = {
             withCredentials: true,
             credentials: "include",
             headers: {
-               Authorization: bearer,
+               Authorization: "Bearer " + bearer,
                "Content-Type": "application/json",
             },
             body: JSON.stringify(body),
@@ -103,11 +103,16 @@ const apiSetting = {
       ).json();
       return fetchRegister;
    },
-   registerRoute: async (body) => {
+   registerRoute: async (body, bearer) => {
       const fetchRegister = await (
          await fetch(`${REGISTER_ROUTES}`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
             body: JSON.stringify(body),
          })
       ).json();
