@@ -83,11 +83,16 @@ const apiSetting = {
       ).json();
       return fetchRegister;
    },
-   registerDriver: async (body) => {
+   registerDriver: async (body, bearer) => {
       const fetchRegister = await (
          await fetch(`${REGISTER_DRIVER}`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
             body: JSON.stringify(body),
          })
       ).json();
