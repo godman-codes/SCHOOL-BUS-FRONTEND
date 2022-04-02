@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
 import API from "../../API";
-
+//components
 import AdminNavbar from "../components/AdminNavbar";
 import RegisterParentForm from "./components/RegisterParentForm";
-import { Context } from "../../Context";
 import NavErrors from "../../components/NavErrors";
+//context
+import { Context } from "../../Context";
+
 const ParentRegister = () => {
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
