@@ -143,11 +143,16 @@ const apiSetting = {
       ).json();
       return fetchRegister;
    },
-   registerTrip: async (body) => {
+   registerTrip: async (body, bearer) => {
       const fetchRegister = await (
          await fetch(`${REGISTER_TRIP}`, {
             method: "POST",
-            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
             body: JSON.stringify(body),
          })
       ).json();
