@@ -17,6 +17,15 @@ const RegisterParentForm = ({ handler }) => {
    const handleRegister = async (e) => {
       if (password !== confirmPassword) {
          alert("password don't match");
+      } else if (
+         firstname === "" ||
+         lastname === "" ||
+         email === "" ||
+         tel === "" ||
+         password === "" ||
+         confirmPassword === ""
+      ) {
+         alert("please fill all fields");
       } else {
          const data = {
             parent_email: email,
@@ -102,7 +111,7 @@ const RegisterParentForm = ({ handler }) => {
                   />
                </div>
             </Content>
-            <Button text="Register Parent" callback={handleRegister} />
+            <Button text="Register" callback={handleRegister} />
          </div>
       </Wrapper>
    );
