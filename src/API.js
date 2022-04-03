@@ -158,6 +158,20 @@ const apiSetting = {
       ).json();
       return fetchRegister;
    },
+   getActiveTrips: async (bearer) => {
+      const fetchActiveTrips = await (
+         await fetch(`${GET_ACTIVE_TRIPS}`, {
+            method: "GET",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return fetchActiveTrips;
+   },
 };
 
 export default apiSetting;

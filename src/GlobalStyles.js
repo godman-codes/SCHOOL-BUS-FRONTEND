@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
 body {
    margin: 0;
    padding: 0;
+   background-color: var(--lightGrey);
    
    h1 {
       font-size: 2rem;

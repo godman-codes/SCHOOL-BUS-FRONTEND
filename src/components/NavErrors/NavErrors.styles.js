@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
    justify-content: center;
    text-align: center;
    display: flex;
+   width: 100%;
    h1 {
       font-size: var(--fontBig);
       font-weight: lighter;
