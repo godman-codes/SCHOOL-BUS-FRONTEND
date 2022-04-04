@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
    justify-content: center;
    align-content: center;
    display: flex;
+   flex-direction: column;
+   h1 {
+      color: black;
+   }
 `;
 export const Content = styled.div`
    justify-content: center;

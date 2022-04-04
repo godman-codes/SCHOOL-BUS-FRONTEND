@@ -3,6 +3,7 @@ import { Wrapper, Content } from "./Table.styles";
 const Table = ({ activeTrips }) => {
    return (
       <Wrapper>
+         <h1>Active Trips</h1>
          <Content>
             <table>
                <thead>

@@ -3,6 +3,7 @@ import { Wrapper, Content } from "../../components/Table/Table.styles";
 const ParentTable = ({ parents }) => {
    return (
       <Wrapper>
+         <h1>Parents</h1>
          <Content>
             <table>
                <thead>

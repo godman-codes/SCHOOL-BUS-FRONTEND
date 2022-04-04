@@ -132,7 +132,7 @@ const AdminNavbar = ({ title }) => {
                   </li>
 
                   <li className="primary-nav">
-                     <Link to="/" style={{ textDecoration: "none" }}>
+                     <Link to="/logout" style={{ textDecoration: "none" }}>
                         <p>Logout</p>
                      </Link>
                   </li>

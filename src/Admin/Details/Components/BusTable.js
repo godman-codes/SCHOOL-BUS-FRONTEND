@@ -3,6 +3,7 @@ import { Wrapper, Content } from "../../components/Table/Table.styles";
 const BusTable = ({ buses }) => {
    return (
       <Wrapper>
+         <h1>Buses</h1>
          <Content>
             <table>
                <thead>

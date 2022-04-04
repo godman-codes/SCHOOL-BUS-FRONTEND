@@ -3,6 +3,7 @@ import { Wrapper, Content } from "../../components/Table/Table.styles";
 const DriverTable = ({ drivers }) => {
    return (
       <Wrapper>
+         <h1>Drivers</h1>
          <Content>
             <table>
                <thead>
