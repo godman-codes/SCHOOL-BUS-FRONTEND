@@ -72,6 +72,8 @@ const GET_PARENT_REFRESH_TOKEN = `${API_URL}parent/token/refresh`;
 
 const GET_DRIVER_REFRESH_TOKEN = `${API_URL}driver/token/refresh`;
 
+const GET_PARENT_LOG = `${API_URL}admin/parents_log`;
+
 export {
    API_URL,
    GET_ADMIN_DETAILS,
@@ -109,4 +111,5 @@ export {
    GET_ADMIN_REFRESH_TOKEN,
    GET_DRIVER_REFRESH_TOKEN,
    GET_PARENT_REFRESH_TOKEN,
+   GET_PARENT_LOG,
 };

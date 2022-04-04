@@ -51,8 +51,8 @@ export const Content = styled.div`
          }
       }
       tbody {
-         height: 40px;
          tr {
+            height: 40px;
             background-color: #baffc7;
             td {
                text-align: center;

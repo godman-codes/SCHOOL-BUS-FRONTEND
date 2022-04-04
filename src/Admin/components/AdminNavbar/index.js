@@ -93,11 +93,14 @@ const AdminNavbar = ({ title }) => {
                   </li>
                   <li className="primary-nav">
                      <Link to="#" style={{ textDecoration: "none" }}>
-                        <p>Search</p>
+                        <p>Details</p>
                      </Link>
                      <ul>
                         <li>
-                           <Link to="/" style={{ textDecoration: "none" }}>
+                           <Link
+                              to="/parent_details"
+                              style={{ textDecoration: "none" }}
+                           >
                               <p>Parent</p>
                            </Link>
                         </li>

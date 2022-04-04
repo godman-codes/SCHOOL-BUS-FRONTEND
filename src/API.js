@@ -35,6 +35,7 @@ import {
    GET_ADMIN_REFRESH_TOKEN,
    GET_DRIVER_REFRESH_TOKEN,
    GET_PARENT_REFRESH_TOKEN,
+   GET_PARENT_LOG,
 } from "./config";
 
 const apiSetting = {
@@ -171,6 +172,20 @@ const apiSetting = {
          })
       ).json();
       return fetchActiveTrips;
+   },
+   getParentLog: async (bearer) => {
+      const fetchParentLog = await (
+         await fetch(`${GET_PARENT_LOG}`, {
+            method: "GET",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return fetchParentLog;
    },
 };
 
