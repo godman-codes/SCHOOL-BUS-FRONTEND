@@ -16,6 +16,10 @@ const AdminLogin = () => {
       try {
          const loginAdminToken = await API.loginAdmin(body);
          console.log(loginAdminToken);
+         sessionStorage.setItem(
+            "access",
+            JSON.stringify(loginAdminToken.admin.access)
+         );
          if (loginAdminToken.admin) {
             setError(false);
             setUser({ admin: loginAdminToken.admin });

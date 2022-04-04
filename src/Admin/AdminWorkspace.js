@@ -12,7 +12,9 @@ const AdminWorkspace = () => {
    console.log(user);
    const getActiveTrips = async () => {
       try {
-         const fetchTrips = await API.getActiveTrips(user.admin.access);
+         const access = sessionStorage.getItem("access");
+         const key = JSON.parse(access);
+         const fetchTrips = await API.getActiveTrips(key);
          console.log(fetchTrips);
          if (fetchTrips.message) {
             setTrips(fetchTrips.active_trips);

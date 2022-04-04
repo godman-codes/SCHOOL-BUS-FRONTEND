@@ -11,9 +11,9 @@ const ParentDetails = () => {
    const [user] = useContext(Context);
 
    console.log(user);
-   const getParents = async () => {
+   const getParents = async (access) => {
       try {
-         const fetchParentLog = await API.getParentLog(user.admin.access);
+         const fetchParentLog = await API.getParentLog(access);
          console.log(fetchParentLog);
          if (fetchParentLog.message) {
             setParents(fetchParentLog.parents);
@@ -27,8 +27,10 @@ const ParentDetails = () => {
       }
    };
    useEffect(() => {
+      const access = sessionStorage.getItem("access");
+      const key = JSON.parse(access);
       console.table(parents);
-      getParents();
+      getParents(key);
    }, []);
 
    return (
