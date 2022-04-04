@@ -36,6 +36,7 @@ import {
    GET_DRIVER_REFRESH_TOKEN,
    GET_PARENT_REFRESH_TOKEN,
    GET_PARENT_LOG,
+   GET_DRIVER_LOG,
 } from "./config";
 
 const apiSetting = {
@@ -186,6 +187,20 @@ const apiSetting = {
          })
       ).json();
       return fetchParentLog;
+   },
+   getDriverLog: async (bearer) => {
+      const fetchDriverLog = await (
+         await fetch(`${GET_DRIVER_LOG}`, {
+            method: "GET",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return fetchDriverLog;
    },
 };
 
