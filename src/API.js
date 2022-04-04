@@ -38,6 +38,7 @@ import {
    GET_PARENT_LOG,
    GET_DRIVER_LOG,
    GET_CHILDREN_LOG,
+   GET_BUS_LOG,
 } from "./config";
 
 const apiSetting = {
@@ -216,6 +217,20 @@ const apiSetting = {
          })
       ).json();
       return fetchChildrenLog;
+   },
+   getBusLog: async (bearer) => {
+      const fetchBusLog = await (
+         await fetch(`${GET_BUS_LOG}`, {
+            method: "GET",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return fetchBusLog;
    },
 };
 

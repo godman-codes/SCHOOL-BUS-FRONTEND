@@ -27,6 +27,13 @@ export const Content = styled.div`
          }
       }
    }
+   #notActive {
+      background-color: red;
+      width: 20px;
+      height: 20px;
+      box-shadow: 2px grey;
+   }
+
    #track {
       width: 70%;
       background: lightgreen;

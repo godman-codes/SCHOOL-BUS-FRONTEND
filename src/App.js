@@ -16,6 +16,7 @@ import RegisterTrip from "./Admin/Register/RegisterTrip";
 import ParentDetails from "./Admin/Details/ParentDetails";
 import DriverDetails from "./Admin/Details/DriverDetails";
 import ChildrenDetails from "./Admin/Details/ChildrenDetails";
+import BusDetails from "./Admin/Details/BusDetails";
 import UserProvider from "./Context";
 import { GlobalStyle } from "./GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -42,6 +43,7 @@ const App = () => (
                <Route path="/parent_details" element={<ParentDetails />} />
                <Route path="/driver_details" element={<DriverDetails />} />
                <Route path="/children_details" element={<ChildrenDetails />} />
+               <Route path="/bus_details" element={<BusDetails />} />
             </Routes>
             <GlobalStyle />
          </UserProvider>
