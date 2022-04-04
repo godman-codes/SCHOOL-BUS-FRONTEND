@@ -113,8 +113,11 @@ const AdminNavbar = ({ title }) => {
                            </Link>
                         </li>
                         <li>
-                           <Link to="/" style={{ textDecoration: "none" }}>
-                              <p>Child</p>
+                           <Link
+                              to="/children_details"
+                              style={{ textDecoration: "none" }}
+                           >
+                              <p>Children</p>
                            </Link>
                         </li>
                         <li>

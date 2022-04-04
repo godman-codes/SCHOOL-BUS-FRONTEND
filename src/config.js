@@ -76,6 +76,8 @@ const GET_PARENT_LOG = `${API_URL}admin/parents_log`;
 
 const GET_DRIVER_LOG = `${API_URL}admin/drivers_log`;
 
+const GET_CHILDREN_LOG = `${API_URL}admin/children_log`;
+
 export {
    API_URL,
    GET_ADMIN_DETAILS,
@@ -115,4 +117,5 @@ export {
    GET_PARENT_REFRESH_TOKEN,
    GET_PARENT_LOG,
    GET_DRIVER_LOG,
+   GET_CHILDREN_LOG,
 };
