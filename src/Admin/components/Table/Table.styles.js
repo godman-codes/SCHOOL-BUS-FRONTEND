@@ -37,7 +37,12 @@ export const Content = styled.div`
       height: 20px;
       box-shadow: 2px grey;
    }
-
+   #start {
+      background-color: green;
+   }
+   #end {
+      background-color: red;
+   }
    #track {
       width: 70%;
       background: lightgreen;

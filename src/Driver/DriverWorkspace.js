@@ -2,9 +2,10 @@ import React, { useContext, useState, useEffect } from "react";
 import DriverNavbar from "./components/DriverNavbar";
 import { Context } from "../Context";
 import API from "../API";
+import DriverTable from "./components/DriverTable";
 
 const DriverWorkspace = () => {
-   const [trips, setTrips] = useState([]);
+   const [trip, setTrips] = useState({});
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
    const [user] = useContext(Context);
@@ -31,12 +32,13 @@ const DriverWorkspace = () => {
    useEffect(() => {
       getDriverTrips();
    }, []);
-   console.log(trips);
+   console.log(trip.date);
 
    return (
       <>
          <DriverNavbar title="Godman Transports" />
          <br />
+         <DriverTable trip={trip} />
       </>
    );
 };
