@@ -16,6 +16,10 @@ const DriverLogin = () => {
          const loginDriverToken = await API.loginDriver(body);
          console.log(loginDriverToken);
          if (loginDriverToken.driver) {
+            sessionStorage.setItem(
+               "driverAccess",
+               JSON.stringify(loginDriverToken.driver.access)
+            );
             setError(false);
             navigate("/driver_workspace");
             console.log(loginDriverToken.driver);

@@ -40,6 +40,7 @@ import {
    GET_CHILDREN_LOG,
    GET_BUS_LOG,
    GET_CHILDREN_TRIPS,
+   GET_DRIVER_TRIPS,
 } from "./config";
 
 const apiSetting = {
@@ -247,6 +248,20 @@ const apiSetting = {
       ).json();
       console.log("no error");
       return fetchChildrenTripsLog;
+   },
+   getDriverTrips: async (bearer) => {
+      const fetchDriverTrip = await (
+         await fetch(`${GET_DRIVER_TRIPS}`, {
+            method: "GET",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return fetchDriverTrip;
    },
 };
 

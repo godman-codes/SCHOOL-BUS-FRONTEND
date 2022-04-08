@@ -56,7 +56,7 @@ const GET_DRIVERS_BUS = `${API_URL}driver/get_drivers_bus`;
 
 const GET_DRIVERS_DEVICE_LOCATION = `${API_URL}driver/get_location`;
 
-const GET_TRIPS = `${API_URL}driver/get_trips`;
+const GET_DRIVER_TRIPS = `${API_URL}driver/get_trips`;
 
 const START_TRIP = `${API_URL}driver/start_trip`;
 
@@ -110,7 +110,6 @@ export {
    END_TRIP,
    GET_DRIVERS_BUS,
    GET_DRIVERS_DEVICE_LOCATION,
-   GET_TRIPS,
    START_TRIP,
    GET_CHILD_TRIP,
    GET_PARENT_NOTIFICATION,
@@ -123,4 +122,5 @@ export {
    GET_CHILDREN_LOG,
    GET_BUS_LOG,
    GET_CHILDREN_TRIPS,
+   GET_DRIVER_TRIPS,
 };

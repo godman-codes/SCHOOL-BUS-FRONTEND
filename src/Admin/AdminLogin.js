@@ -16,11 +16,11 @@ const AdminLogin = () => {
       try {
          const loginAdminToken = await API.loginAdmin(body);
          console.log(loginAdminToken);
-         sessionStorage.setItem(
-            "access",
-            JSON.stringify(loginAdminToken.admin.access)
-         );
          if (loginAdminToken.admin) {
+            sessionStorage.setItem(
+               "access",
+               JSON.stringify(loginAdminToken.admin.access)
+            );
             setError(false);
             setUser({ admin: loginAdminToken.admin });
             navigate("/admin_workspace");
