@@ -79,6 +79,8 @@ const GET_DRIVER_LOG = `${API_URL}admin/drivers_log`;
 const GET_CHILDREN_LOG = `${API_URL}admin/children_log`;
 
 const GET_BUS_LOG = `${API_URL}admin/bus_log`;
+
+const GET_CHILDREN_TRIPS = `${API_URL}parent/get_children_trip`;
 export {
    API_URL,
    GET_ADMIN_DETAILS,
@@ -120,4 +122,5 @@ export {
    GET_DRIVER_LOG,
    GET_CHILDREN_LOG,
    GET_BUS_LOG,
+   GET_CHILDREN_TRIPS,
 };

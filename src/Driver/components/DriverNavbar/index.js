@@ -46,7 +46,7 @@ const DriverNavbar = ({ title }) => {
                   </li>
                   <li className="primary-nav">
                      <Link to="/" style={{ textDecoration: "none" }}>
-                        <p>profile</p>
+                        <p>Profile</p>
                      </Link>
                   </li>
                   <li className="primary-nav">

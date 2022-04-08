@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import NavErrors from "../components/NavErrors";
 import HomeNavbar from "../components/HomeNavbar";
 import LoginForm from "./components/LoginForm";
 import { useNavigate } from "react-router-dom";
 import API from "../API";
+import { Context } from "../Context";
 
 const ParentLogin = () => {
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
+   const [access, setAccess] = useState(undefined);
+   const [user, setUser] = useContext(Context);
    const navigate = useNavigate();
 
    const handleLogin = async (body) => {
@@ -15,6 +18,11 @@ const ParentLogin = () => {
          const loginParentToken = await API.loginParent(body);
          console.log(loginParentToken);
          if (loginParentToken.parent) {
+            sessionStorage.setItem(
+               "parentAccess",
+               JSON.stringify(loginParentToken.parent.access)
+            );
+            setUser({ parent: loginParentToken.parent });
             setError(false);
             navigate("/parent_dashboard");
             console.log(loginParentToken.parent);
