@@ -18,6 +18,7 @@ import DriverDetails from "./Admin/Details/DriverDetails";
 import ChildrenDetails from "./Admin/Details/ChildrenDetails";
 import BusDetails from "./Admin/Details/BusDetails";
 import UserProvider from "./Context";
+import Attendance from "./Driver/Attendance";
 import Logout from "./Logout";
 import { GlobalStyle } from "./GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -46,6 +47,7 @@ const App = () => (
                <Route path="/children_details" element={<ChildrenDetails />} />
                <Route path="/bus_details" element={<BusDetails />} />
                <Route path="/logout" element={<Logout />} />
+               <Route path="/attendance" element={<Attendance />} />
             </Routes>
             <GlobalStyle />
          </UserProvider>
