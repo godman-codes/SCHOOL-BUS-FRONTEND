@@ -42,6 +42,7 @@ import {
    GET_CHILDREN_TRIPS,
    GET_DRIVER_TRIPS,
    GET_DRIVERS_ATTENDANCE_LOG,
+   GET_DRIVER_CURRENT_TRIP,
 } from "./config";
 
 const apiSetting = {
@@ -277,6 +278,20 @@ const apiSetting = {
          })
       ).json();
       return fetchDriverAttendance;
+   },
+   getDriverCurrentTrip: async (bearer, id) => {
+      const fetchTrip = await (
+         await fetch(`${GET_DRIVER_CURRENT_TRIP}/${id}`, {
+            method: "GET",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return fetchTrip;
    },
 };
 

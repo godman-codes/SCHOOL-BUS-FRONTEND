@@ -84,6 +84,8 @@ const GET_CHILDREN_TRIPS = `${API_URL}parent/get_children_trip`;
 
 const GET_DRIVERS_ATTENDANCE_LOG = `${API_URL}driver/get_attendance`;
 
+const GET_DRIVER_CURRENT_TRIP = `${API_URL}driver/get_trip`;
+
 export {
    API_URL,
    GET_ADMIN_DETAILS,
@@ -127,4 +129,5 @@ export {
    GET_CHILDREN_TRIPS,
    GET_DRIVER_TRIPS,
    GET_DRIVERS_ATTENDANCE_LOG,
+   GET_DRIVER_CURRENT_TRIP,
 };

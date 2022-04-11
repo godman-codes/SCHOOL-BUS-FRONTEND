@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Wrapper, Content } from "../../../Admin/components/Table/Table.styles";
 
 const DriverTable = ({ trip }) => {
@@ -16,9 +17,7 @@ const DriverTable = ({ trip }) => {
                      <td>Bus</td>
                      <td>Route</td>
                      <td>End Timestamp</td>
-                     <td>Start</td>
-                     <td>End</td>
-                     <td>Track</td>
+                     <td>Open</td>
                   </tr>
                </thead>
                <tbody>
@@ -31,13 +30,9 @@ const DriverTable = ({ trip }) => {
                      <td>{trip.routes}</td>
                      <td>{trip.end_timestamp}</td>
                      <td>
-                        <button id="start">Start</button>
-                     </td>
-                     <td>
-                        <button id="end">End</button>
-                     </td>
-                     <td>
-                        <button>Track</button>
+                        <Link to={`/driver_trip_tracker/${trip.id}`}>
+                           <button style={{ cursor: "pointer" }}>Open</button>
+                        </Link>
                      </td>
                   </tr>
                </tbody>

@@ -3,14 +3,16 @@ import DriverNavbar from "./components/DriverNavbar";
 import { Context } from "../Context";
 import API from "../API";
 import DriverTable from "./components/DriverTable";
+import useGeoLocation from "../hooks/useGeoLocation";
 
 const DriverWorkspace = () => {
    const [trip, setTrips] = useState({});
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
    const [user] = useContext(Context);
+   // const location = useGeoLocation();
 
-   console.log(user);
+   console.log("outside the effect");
 
    const getDriverTrips = async () => {
       try {
@@ -32,12 +34,14 @@ const DriverWorkspace = () => {
    useEffect(() => {
       getDriverTrips();
    }, []);
-   console.log(trip.date);
+   // useEffect(() => {}, []);
+   // console.log(location.coordinates);
 
    return (
       <>
          <DriverNavbar title="Godman Transports" />
          <br />
+         {/* <h1 style={{ color: "black" }}>{JSON.stringify(location)}</h1> */}
          <DriverTable trip={trip} />
       </>
    );
