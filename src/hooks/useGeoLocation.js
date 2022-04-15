@@ -6,6 +6,11 @@ const useGeoLocation = () => {
       loaded: false,
       coordinates: { lat: "", lng: "" },
    });
+   const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 10000,
+   };
 
    const onSuccess = (location) => {
       setLocation({
@@ -32,7 +37,7 @@ const useGeoLocation = () => {
             message: "Browser does not support geolocation",
          });
       }
-      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+      navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
    }, []);
    useEffect(() => {
       if (trackState) {

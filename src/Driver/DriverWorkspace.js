@@ -10,7 +10,7 @@ const DriverWorkspace = () => {
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
    const [user] = useContext(Context);
-   // const location = useGeoLocation();
+   const location = useGeoLocation();
 
    console.log("outside the effect");
 
@@ -34,14 +34,14 @@ const DriverWorkspace = () => {
    useEffect(() => {
       getDriverTrips();
    }, []);
-   // useEffect(() => {}, []);
-   // console.log(location.coordinates);
+   useEffect(() => {}, []);
+   console.log(location.coordinates);
 
    return (
       <>
          <DriverNavbar title="Godman Transports" />
          <br />
-         {/* <h1 style={{ color: "black" }}>{JSON.stringify(location)}</h1> */}
+         <h1 style={{ color: "black" }}>{JSON.stringify(location)}</h1>
          <DriverTable trip={trip} />
       </>
    );

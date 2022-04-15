@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import DriverNavbar from "./components/DriverNavbar";
+import Map from "./components/Maps/Maps";
 import API from "../API";
+// import MapsTwo from "./Mapstwo";
 
 const DriverTripTracker = () => {
    const { id } = useParams();
@@ -33,6 +35,7 @@ const DriverTripTracker = () => {
    return (
       <>
          <DriverNavbar title="Godman Transports" />
+         <Map></Map>
       </>
    );
 };
