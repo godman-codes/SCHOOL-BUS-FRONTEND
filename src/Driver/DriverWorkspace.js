@@ -41,7 +41,6 @@ const DriverWorkspace = () => {
       <>
          <DriverNavbar title="Godman Transports" />
          <br />
-         <h1 style={{ color: "black" }}>{JSON.stringify(location)}</h1>
          <DriverTable trip={trip} />
       </>
    );
