@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import DriverNavbar from "./components/DriverNavbar";
 import Map from "./components/Maps/Maps";
 import API from "../API";
+import useGeoLocation from "../hooks/useGeoLocation";
+import { Wrapper } from "./components/DriverTripTracker.styles";
 // import MapsTwo from "./Mapstwo";
 
 const DriverTripTracker = () => {
@@ -10,6 +12,7 @@ const DriverTripTracker = () => {
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
    const [trip, setTrips] = useState({});
+   const location = useGeoLocation();
 
    const getTrip = async (identifier) => {
       try {
@@ -35,7 +38,12 @@ const DriverTripTracker = () => {
    return (
       <>
          <DriverNavbar title="Godman Transports" />
-         <Map></Map>
+         <Map center={location.coordinates}></Map>
+         <Wrapper>
+            <button id="start">Start</button>
+            <button id="end">End</button>
+         </Wrapper>
+         {/* <Map center={{ lat: 6.4474, lng: 3.3903 }}></Map> */}
       </>
    );
 };

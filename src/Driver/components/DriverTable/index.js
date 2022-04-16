@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Wrapper, Content } from "../../../Admin/components/Table/Table.styles";
-
+import { Wrapper, Content } from "./DriverTable.styles";
 const DriverTable = ({ trip }) => {
    return (
       <Wrapper>
@@ -11,24 +10,24 @@ const DriverTable = ({ trip }) => {
                <thead>
                   <tr>
                      <td>Date/Time</td>
-                     <td>Start Timestamp</td>
-                     <td>Last Update</td>
-                     <td>Location</td>
-                     <td>Bus</td>
+                     <td className="hide">Start Timestamp</td>
+                     <td className="hide">Last Update</td>
+                     <td className="hide">Location</td>
+                     <td className="hide">Bus</td>
                      <td>Route</td>
-                     <td>End Timestamp</td>
+                     <td className="hide">End Timestamp</td>
                      <td>Open</td>
                   </tr>
                </thead>
                <tbody>
                   <tr>
                      <td>{trip.date}</td>
-                     <td>{trip.start_timestamp}</td>
-                     <td>{trip.last_update_timestamp}</td>
-                     <td>{trip.latest_gps}</td>
-                     <td>{trip.bus_id}</td>
+                     <td className="hide">{trip.start_timestamp}</td>
+                     <td className="hide">{trip.last_update_timestamp}</td>
+                     <td className="hide">{trip.latest_gps}</td>
+                     <td className="hide">{trip.bus_id}</td>
                      <td>{trip.routes}</td>
-                     <td>{trip.end_timestamp}</td>
+                     <td className="hide">{trip.end_timestamp}</td>
                      <td>
                         <Link to={`/driver_trip_tracker/${trip.id}`}>
                            <button style={{ cursor: "pointer" }}>Open</button>

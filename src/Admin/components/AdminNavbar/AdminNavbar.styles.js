@@ -84,6 +84,7 @@ export const Content = styled.div`
          flex-direction: column;
          transform: translateX(100%);
          transition: 0.5s ease-in;
+         z-index: 1;
          li:hover ul {
             border-radius: 10px;
             background: white;
