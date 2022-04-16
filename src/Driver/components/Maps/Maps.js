@@ -10,9 +10,9 @@ const containerStyle = {
    width: "100vw",
    height: "70vh",
 };
-const center = { lat: 6.50772, lng: 3.20135 };
+const center = { lat: 6.4474, lng: 3.3903 };
 const Map = () => {
-   const [map, setMap] = useState(/** @type google.maps.Map */ null);
+   const [map, setMap] = useState(null);
    const { isLoaded } = useJsApiLoader({
       id: "google-map-script",
       googleMapsApiKey: "AIzaSyCtm7vk6Jbe_S8lNMbVfTJivNT01QEeBHQ",

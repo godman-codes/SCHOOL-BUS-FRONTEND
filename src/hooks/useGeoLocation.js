@@ -5,11 +5,10 @@ const useGeoLocation = () => {
    const [location, setLocation] = useState({
       loaded: false,
       coordinates: { lat: "", lng: "" },
+      accuracy: "",
    });
    const options = {
       enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 10000,
    };
 
    const onSuccess = (location) => {
@@ -19,7 +18,7 @@ const useGeoLocation = () => {
             lat: location.coords.latitude,
             lng: location.coords.longitude,
          },
-         location,
+         accuracy: location.coords.accuracy,
       });
    };
 
@@ -38,6 +37,14 @@ const useGeoLocation = () => {
          });
       }
       navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+      fetch(`http://ip-api.com/json`)
+         .then((res) => res.json())
+         .then((data) => {
+            console.log(data);
+         })
+         .catch((err) => {
+            console.log(err);
+         });
    }, []);
    useEffect(() => {
       if (trackState) {
