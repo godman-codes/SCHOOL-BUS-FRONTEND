@@ -10,7 +10,7 @@ const DriverWorkspace = () => {
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
    const [user] = useContext(Context);
-   const location = useGeoLocation();
+   const { location } = useGeoLocation();
 
    console.log("outside the effect");
 

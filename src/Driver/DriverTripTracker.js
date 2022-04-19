@@ -12,7 +12,7 @@ const DriverTripTracker = () => {
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
    const [trip, setTrips] = useState({});
-   const location = useGeoLocation();
+   const { location, setTrackState } = useGeoLocation();
 
    const getTrip = async (identifier) => {
       try {
@@ -40,8 +40,12 @@ const DriverTripTracker = () => {
          <DriverNavbar title="Godman Transports" />
          <Map center={location.coordinates}></Map>
          <Wrapper>
-            <button id="start">Start</button>
-            <button id="end">End</button>
+            <button id="start" onClick={() => setTrackState(true)}>
+               Start
+            </button>
+            <button id="end" onClick={() => setTrackState(false)}>
+               End
+            </button>
          </Wrapper>
          {/* <Map center={{ lat: 6.4474, lng: 3.3903 }}></Map> */}
       </>

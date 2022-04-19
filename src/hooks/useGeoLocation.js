@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useGeoLocation = () => {
    const [trackState, setTrackState] = useState(false);
    const [location, setLocation] = useState({
       loaded: false,
-      coordinates: { lat: "", lng: "" },
+      coordinates: { lat: 0.0, lng: 0.0 },
       accuracy: "",
    });
    const options = {
@@ -37,22 +37,30 @@ const useGeoLocation = () => {
          });
       }
       navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
-      fetch(`http://ip-api.com/json`)
-         .then((res) => res.json())
-         .then((data) => {
-            console.log(data);
-         })
-         .catch((err) => {
-            console.log(err);
-         });
    }, []);
+
    useEffect(() => {
+      let interval = null;
+      console.log("track useEffect");
+      console.log(`trackState is ${trackState}`);
       if (trackState) {
-         console.log("track useeffect");
-         navigator.geolocation.watchPosition(onSuccess, onError);
+         interval = setInterval(() => {
+            console.log("the interval is running");
+            navigator.geolocation.getCurrentPosition(
+               onSuccess,
+               onError,
+               options
+            );
+         }, 5000);
+      } else {
+         console.log("the interval is not running");
+         clearInterval(interval);
       }
+      return () => clearInterval(interval);
    }, [trackState]);
+
    console.log(location);
-   return location;
+
+   return { location, setTrackState };
 };
 export default useGeoLocation;
