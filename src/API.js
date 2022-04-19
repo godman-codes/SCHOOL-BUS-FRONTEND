@@ -293,6 +293,21 @@ const apiSetting = {
       ).json();
       return fetchTrip;
    },
+   postDriverLocation: async (body, bearer) => {
+      const postLocation = await (
+         await fetch(`${GET_DRIVERS_DEVICE_LOCATION}`, {
+            method: "POST",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+         })
+      ).json();
+      return postLocation;
+   },
 };
 
 export default apiSetting;

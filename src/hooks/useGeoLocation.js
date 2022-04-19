@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import API from "../API";
 
 const useGeoLocation = () => {
    const [trackState, setTrackState] = useState(false);
@@ -9,6 +10,22 @@ const useGeoLocation = () => {
    });
    const options = {
       enableHighAccuracy: true,
+   };
+
+   const handlePostLocation = async (body) => {
+      try {
+         const access = sessionStorage.getItem("driverAccess");
+         const key = JSON.parse(access);
+         const postLocation = await API.postDriverLocation(body, key);
+         console.log(postLocation);
+         if (postLocation.message) {
+            console.log(postLocation.message);
+         } else {
+            console.log(postLocation.error);
+         }
+      } catch (error) {
+         console.log(error);
+      }
    };
 
    const onSuccess = (location) => {
@@ -51,7 +68,11 @@ const useGeoLocation = () => {
                onError,
                options
             );
-         }, 5000);
+            const body = {
+               location: JSON.stringify(location.coordinates),
+            };
+            handlePostLocation(body);
+         }, 10000);
       } else {
          console.log("the interval is not running");
          clearInterval(interval);
