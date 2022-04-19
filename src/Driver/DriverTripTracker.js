@@ -5,7 +5,6 @@ import Map from "./components/Maps/Maps";
 import API from "../API";
 import useGeoLocation from "../hooks/useGeoLocation";
 import { Wrapper } from "./components/DriverTripTracker.styles";
-// import MapsTwo from "./Mapstwo";
 
 const DriverTripTracker = () => {
    const { id } = useParams();

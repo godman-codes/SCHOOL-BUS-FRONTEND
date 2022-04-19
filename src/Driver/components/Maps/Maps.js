@@ -8,7 +8,7 @@ import {
 import { Wrapper } from "./Maps.styles";
 const containerStyle = {
    width: "100vw",
-   height: "70vh",
+   height: "87vh",
 };
 // const center = { lat: 6.50721, lng: 3.20178 };
 const libraries = ["places"];
