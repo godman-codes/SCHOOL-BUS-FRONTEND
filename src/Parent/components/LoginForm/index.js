@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { Wrapper, Content } from "./LoginForm.styles";
+import {
+   Wrapper,
+   Content,
+} from "../../../Admin/components/RegisterForm/RegisterForm.styles";
 import Button from "../../../components/Button";
 
 const LoginForm = ({ handler }) => {
@@ -23,9 +26,11 @@ const LoginForm = ({ handler }) => {
    };
    return (
       <Wrapper>
-         <div>
-            <h1>Login</h1>
-            <Content>
+         <Content>
+            <div id="header">
+               <h1>Login</h1>
+            </div>
+            <div id="form">
                <div>
                   <label>User Name</label>
                   <input
@@ -44,14 +49,11 @@ const LoginForm = ({ handler }) => {
                      name="password"
                   />
                </div>
-            </Content>
-            {/* <div className="action-handler-1">
-               <p>
-                  Don't have an account <a href="/admin_register">Register</a>
-               </p>
-            </div> */}
-            <Button text="Login" callback={handleLogin} />
-         </div>
+            </div>
+            <div id="action-handler">
+               <Button text="Login" callback={handleLogin} />
+            </div>
+         </Content>
       </Wrapper>
    );
 };

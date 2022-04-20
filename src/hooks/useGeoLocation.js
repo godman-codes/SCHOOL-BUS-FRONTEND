@@ -72,7 +72,7 @@ const useGeoLocation = () => {
                location: JSON.stringify(location.coordinates),
             };
             handlePostLocation(body);
-         }, 10000);
+         }, 5000);
       } else {
          console.log("the interval is not running");
          clearInterval(interval);

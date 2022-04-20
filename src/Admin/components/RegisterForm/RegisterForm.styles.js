@@ -4,80 +4,68 @@ export const Wrapper = styled.div`
    display: flex;
    justify-content: center;
    align-items: center;
-   div {
-      background: var(--lightGrey);
-      margin: 30px 20px;
-      padding-left: 30px;
-      h1 {
-         margin: 10px 10px -10px 10px;
-         color: var(--darkGrey);
-         text-align: center;
-      }
-      .action-handler-1 {
-         height: 20px;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-      }
-   }
-   @media screen and (max-width: 500px) {
-      div {
-         width: 90%;
-         padding-left: 0;
-      }
-      .action-handler-1 {
-         height: 15px;
-         p {
-            font-size: small;
-         }
-      }
-   }
 `;
 export const Content = styled.div`
-   width: 600px;
-   display: table;
-   div {
-      height: 40px;
-      display: table-row;
-      margin: 5px 0px;
-      align-items: center;
-      label {
-         display: table-cell;
-         margin: 10px 8px;
-      }
-      input {
-         margin: 10px 8px;
-         width: 250px;
-         height: 30px;
-         display: table-cell;
-         border-radius: 5px;
-         border: 1px solid var(--darkGrey);
-      }
-   }
-   @media screen and (max-width: 500px) {
-      width: 80%;
-      display: block;
+   width: 400px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   #header {
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
       h1 {
-         margin: 10px 0;
          color: var(--darkGrey);
       }
+   }
+   #form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
       div {
-         height: 40px;
-         display: table-row;
-         margin: 5px 0px;
-         align-items: center;
+         height: 30px;
+         margin: 10px 0;
+         display: flex;
          label {
-            display: table-cell;
-            margin: 5px 4px;
-            font-size: 15px;
+            padding-left: 10%;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 50%;
+            font-weight: bold;
          }
          input {
-            margin: 10px 8px;
-            width: 260px;
-            height: 30px;
-            display: table-cell;
-            border-radius: 5px;
-            border: 1px solid var(--darkGrey);
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 50%;
+            border: 1px solid;
+            border-radius: 3px;
+            border-style: outset;
+            border-color: var(--darkGrey);
+         }
+      }
+   }
+   #action-handler {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      p {
+         display: flex;
+         justify-content: center;
+         color: var(--darkGrey);
+         a {
+            margin: 0 10px;
+            color: green;
+            text-decoration: none;
+         }
+      }
+   }
+   @media screen and (max-width: 768px) {
+      width: 350px;
+      #form {
+         div {
+            height: 25px;
          }
       }
    }

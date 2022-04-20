@@ -39,9 +39,11 @@ const RegisterTripForm = ({ handler }) => {
 
    return (
       <Wrapper>
-         <div>
-            <h1>Register Trip</h1>
-            <Content>
+         <Content>
+            <div id="header">
+               <h1>Register Trip</h1>
+            </div>
+            <div id="form">
                <div>
                   <label>Route</label>
                   <input
@@ -69,9 +71,11 @@ const RegisterTripForm = ({ handler }) => {
                      onChange={handleInput}
                   />
                </div>
-            </Content>
-            <Button text="Register Trip" callback={handleRegister} />
-         </div>
+            </div>
+            <div id="action-handler">
+               <Button text="Register Trip" callback={handleRegister} />
+            </div>
+         </Content>
       </Wrapper>
    );
 };

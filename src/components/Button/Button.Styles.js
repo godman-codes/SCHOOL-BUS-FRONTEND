@@ -6,7 +6,7 @@ export const Wrapper = styled.button`
    color: var(--white);
    background: var(--darkGrey);
    border-radius: 30px;
-   width: 25%;
+   width: 150px;
    height: 60px;
    margin: 20px auto;
    outline: none;
@@ -18,7 +18,6 @@ export const Wrapper = styled.button`
    }
    @media screen and (max-width: 500px) {
       border-radius: 20px;
-      width: 20%;
       height: 40px;
       font-size: var(--fontSmall);
    }

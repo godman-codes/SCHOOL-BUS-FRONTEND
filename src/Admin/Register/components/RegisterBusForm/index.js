@@ -45,9 +45,11 @@ const RegisterBusForm = ({ handler }) => {
    };
    return (
       <Wrapper>
-         <div>
-            <h1>Register Bus</h1>
-            <Content>
+         <Content>
+            <div id="header">
+               <h1>Register Bus</h1>
+            </div>
+            <div id="form">
                <div>
                   <label>Bus Model</label>
                   <input
@@ -84,9 +86,11 @@ const RegisterBusForm = ({ handler }) => {
                      onChange={handleInput}
                   />
                </div>
-            </Content>
-            <Button text="Register Bus" callback={handleRegister} />
-         </div>
+            </div>
+            <div id="action-handler">
+               <Button text="Register Bus" callback={handleRegister} />
+            </div>
+         </Content>
       </Wrapper>
    );
 };

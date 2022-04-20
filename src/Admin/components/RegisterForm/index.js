@@ -7,9 +7,11 @@ import { Link } from "react-router-dom";
 const RegisterForm = () => {
    return (
       <Wrapper>
-         <div>
-            <h1>Register</h1>
-            <Content>
+         <Content>
+            <div id="header">
+               <h1>Register</h1>
+            </div>
+            <div id="form">
                <div>
                   <label>School Name</label>
                   <input type="text" />
@@ -38,14 +40,14 @@ const RegisterForm = () => {
                   <label>Confirm Password</label>
                   <input type="password" />
                </div>
-            </Content>
-            <div className="action-handler-1">
+            </div>
+            <div id="action-handler">
                <p>
                   Already registered <Link to="/admin_login">Login</Link>
                </p>
+               <Button id="btn" text="Register" />
             </div>
-            <Button text="Register" />
-         </div>
+         </Content>
       </Wrapper>
    );
 };

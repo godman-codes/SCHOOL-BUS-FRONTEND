@@ -54,9 +54,11 @@ const RegisterDriverForm = ({ handler }) => {
 
    return (
       <Wrapper>
-         <div>
-            <h1>Register Driver</h1>
-            <Content>
+         <Content>
+            <div id="header">
+               <h1>Register Driver</h1>
+            </div>
+            <div id="form">
                <div>
                   <label>First Name</label>
                   <input
@@ -111,9 +113,11 @@ const RegisterDriverForm = ({ handler }) => {
                      onChange={handleInput}
                   />
                </div>
-            </Content>
-            <Button text="Register Driver" callback={handleRegister} />
-         </div>
+            </div>
+            <div id="action-handler">
+               <Button text="Register Driver" callback={handleRegister} />
+            </div>
+         </Content>
       </Wrapper>
    );
 };

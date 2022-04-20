@@ -53,9 +53,11 @@ const RegisterParentForm = ({ handler }) => {
    };
    return (
       <Wrapper>
-         <div>
-            <h1>Register Parent</h1>
-            <Content>
+         <Content>
+            <div id="header">
+               <h1>Register Parent</h1>
+            </div>
+            <div id="form">
                <div>
                   <label>First Name</label>
                   <input
@@ -110,9 +112,11 @@ const RegisterParentForm = ({ handler }) => {
                      onChange={handleInput}
                   />
                </div>
-            </Content>
-            <Button text="Register" callback={handleRegister} />
-         </div>
+            </div>
+            <div id="action-handler">
+               <Button text="Register" callback={handleRegister} />
+            </div>
+         </Content>
       </Wrapper>
    );
 };
