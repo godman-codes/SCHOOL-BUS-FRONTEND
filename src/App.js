@@ -21,6 +21,7 @@ import UserProvider from "./Context";
 import Attendance from "./Driver/Attendance";
 import Logout from "./Logout";
 import DriverTripTracker from "./Driver/DriverTripTracker";
+import ParentTrackPage from "./Parent/ParentTrackPage";
 import { GlobalStyle } from "./GlobalStyles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -49,6 +50,7 @@ const App = () => (
                <Route path="/bus_details" element={<BusDetails />} />
                <Route path="/logout" element={<Logout />} />
                <Route path="/attendance" element={<Attendance />} />
+               <Route path="/parent_track/:id" element={<ParentTrackPage />} />
                <Route
                   path="/driver_trip_tracker/:id"
                   element={<DriverTripTracker />}

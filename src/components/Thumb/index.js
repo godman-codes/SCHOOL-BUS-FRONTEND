@@ -1,5 +1,6 @@
 import React from "react";
 import { Wrapper, Content } from "./Thumb.styles";
+import { Link } from "react-router-dom";
 
 const Thumb = ({ entity }) => {
    return (
@@ -31,7 +32,9 @@ const Thumb = ({ entity }) => {
                            </div>
                         ) : null
                      )}
-                     <button>Track</button>
+                     <Link to={`/parent_track/${trips.id}`}>
+                        <button style={{ cursor: "pointer" }}>Track</button>
+                     </Link>
                   </div>
                ))}
             </div>

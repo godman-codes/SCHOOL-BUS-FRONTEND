@@ -37,12 +37,7 @@ export const Content = styled.div`
       height: 20px;
       box-shadow: 2px grey;
    }
-   #start {
-      background-color: green;
-   }
-   #end {
-      background-color: red;
-   }
+
    #track {
       width: 70%;
       background: lightgreen;
@@ -77,6 +72,9 @@ export const Content = styled.div`
          }
       }
    }
+   /* #track {
+      cursor: pointer;
+   } */
    @media screen and (max-width: 700px) {
       .hide {
          display: none;

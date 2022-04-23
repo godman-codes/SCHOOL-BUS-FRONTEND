@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Wrapper, Content } from "./DriverTable.styles";
+import { useNavigate } from "react-router-dom";
+
 const DriverTable = ({ trip }) => {
+   const navigate = useNavigate();
+
    return (
       <Wrapper>
          <h1>Active Trips</h1>
@@ -29,9 +33,15 @@ const DriverTable = ({ trip }) => {
                      <td>{trip.routes}</td>
                      <td className="hide">{trip.end_timestamp}</td>
                      <td>
-                        <Link to={`/driver_trip_tracker/${trip.id}`}>
-                           <button style={{ cursor: "pointer" }}>Open</button>
-                        </Link>
+                        <button
+                           id="track"
+                           onClick={() => {
+                              navigate(`/driver_trip_tracker/${trip.id}`);
+                           }}
+                           style={{ cursor: "pointer" }}
+                        >
+                           Open
+                        </button>
                      </td>
                   </tr>
                </tbody>
