@@ -4,6 +4,9 @@ export const Wrapper = styled.div`
    display: flex;
    justify-content: center;
    align-items: center;
+   @media screen and (max-width: 768px) {
+      background-color: var(--white);
+   }
 `;
 export const Content = styled.div`
    background-color: white;

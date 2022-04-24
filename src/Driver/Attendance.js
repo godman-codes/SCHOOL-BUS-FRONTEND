@@ -1,8 +1,8 @@
-import React, { useState, useContext, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import DriverNavbar from "./components/DriverNavbar";
 import AttendanceForm from "./components/AttendanceForm";
 import { Wrapper } from "./components/Attendance.styles";
-import { Context } from "../Context";
+// import { Context } from "../Context";
 import API from "../API";
 import AttendanceTable from "./components/AttendanceTable";
 
@@ -25,9 +25,9 @@ const Attendance = () => {
    // const [showDiv, setShowDiv] = useState("show");
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
-   const [user] = useContext(Context);
+   // const [user] = useContext(Context);
 
-   console.log(user);
+   // console.log(user);
    const getAttendance = async () => {
       try {
          const access = sessionStorage.getItem("driverAccess");
