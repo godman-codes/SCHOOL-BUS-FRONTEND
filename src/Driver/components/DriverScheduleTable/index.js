@@ -23,7 +23,7 @@ const DriverScheduleTable = ({ scheduledTrips }) => {
                <tbody>
                   {scheduledTrips.error ? (
                      <tr>
-                        <td colSpan="4">{scheduledTrips.error}</td>
+                        <td colSpan="6">{scheduledTrips.error}</td>
                      </tr>
                   ) : (
                      scheduledTrips.map((trip, i) => (

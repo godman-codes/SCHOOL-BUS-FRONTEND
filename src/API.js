@@ -21,6 +21,10 @@ import {
    GET_DRIVER_CURRENT_SCHEDULED_TRIP,
    GET_ALL_DRIVER_SCHEDULED_TRIPS,
    STREAM_DRIVERS_LOCATION,
+   START_TRIP,
+   END_TRIP,
+   CHILD_PICKED_ATTENDANCE,
+   CHILD_DROPPED_ATTENDANCE,
 } from "./config";
 
 const apiSetting = {
@@ -329,6 +333,64 @@ const apiSetting = {
          })
       ).json();
       return streamLocation;
+   },
+   startCurrentTrip: async (bearer, id) => {
+      const startTrip = await (
+         await fetch(`${START_TRIP}/${id}`, {
+            method: "POST",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return startTrip;
+   },
+   endCurrentTrip: async (bearer, id) => {
+      const endTrip = await (
+         await fetch(`${END_TRIP}/${id}`, {
+            method: "POST",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return endTrip;
+   },
+   postChildPickedAttendance: async (body, bearer, id) => {
+      const postPickedAttendance = await (
+         await fetch(`${CHILD_PICKED_ATTENDANCE}/${id}`, {
+            method: "POST",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+         })
+      ).json();
+      return postPickedAttendance;
+   },
+   postChildDroppedAttendance: async (body, bearer, id) => {
+      const postDroppedAttendance = await (
+         await fetch(`${CHILD_DROPPED_ATTENDANCE}/${id}`, {
+            method: "PUT",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+         })
+      ).json();
+      return postDroppedAttendance;
    },
 };
 

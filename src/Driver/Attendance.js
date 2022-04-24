@@ -24,15 +24,15 @@ const Attendance = () => {
    });
    // const [showDiv, setShowDiv] = useState("show");
    const [error, setError] = useState(false);
+   const [refresh, setRefresh] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
+   const driverTrip = JSON.parse(sessionStorage.getItem("trip"));
+   const key = JSON.parse(sessionStorage.getItem("driverAccess"));
    // const [user] = useContext(Context);
 
    // console.log(user);
    const getAttendance = async () => {
       try {
-         const access = sessionStorage.getItem("driverAccess");
-         const driverTrip = JSON.parse(sessionStorage.getItem("trip"));
-         const key = JSON.parse(access);
          const fetchAttendance = await API.getDriversAttendance(
             key,
             driverTrip.id
@@ -49,9 +49,54 @@ const Attendance = () => {
          setErrorMessage("server error");
       }
    };
+   const postPickedAtt = async (body) => {
+      try {
+         const postAtt = await API.postChildPickedAttendance(
+            body,
+            key,
+            driverTrip.id
+         );
+         console.log(postAtt);
+         if (postAtt.message) {
+            setError(false);
+            setRefresh(!refresh);
+            console.log(postAtt.message);
+         } else {
+            setError(true);
+            setErrorMessage(postAtt.error);
+            console.log(postAtt.error);
+         }
+      } catch (error) {
+         setError(true);
+         setErrorMessage("server error");
+      }
+   };
+   const postDroppedAtt = async (body) => {
+      try {
+         const postAtt = await API.postChildDroppedAttendance(
+            body,
+            key,
+            driverTrip.id
+         );
+         console.log(postAtt);
+         if (postAtt.message) {
+            setError(false);
+            setRefresh(!refresh);
+            console.log(postAtt.message);
+         } else {
+            setError(true);
+            setErrorMessage(postAtt.error);
+            console.log(postAtt.error);
+         }
+      } catch (error) {
+         setError(true);
+         setErrorMessage("server error");
+      }
+   };
+
    useEffect(() => {
       getAttendance();
-   }, []);
+   }, [refresh]);
    console.table(att);
 
    return (
@@ -77,17 +122,14 @@ const Attendance = () => {
                   Drop
                </button>
             </div>
-            {state.showPick && <AttendanceForm text="Pick Child" />}
-            {state.showDrop && <AttendanceForm text="Drop Child" />}
+            {state.showPick && (
+               <AttendanceForm text="Pick Child" handler={postPickedAtt} />
+            )}
+            {state.showDrop && (
+               <AttendanceForm text="Drop Child" handler={postDroppedAtt} />
+            )}
          </Wrapper>
          <AttendanceTable attendance={att} />
-         <br />
-         <br />
-         <br />
-         <br />
-         <br />
-         <br />
-         <br />
          <br />
          <br />
       </>

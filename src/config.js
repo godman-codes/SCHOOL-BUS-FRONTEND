@@ -1,6 +1,7 @@
 // configuration for school bus api
 
 const API_URL = "http://127.0.0.1:5000/api/v1/";
+//admin routes
 
 const GET_ADMIN_DETAILS = `${API_URL}admin/admin_details`;
 
@@ -24,13 +25,21 @@ const REGISTER_TRIP = `${API_URL}admin/register_trip`;
 
 const REGISTER_SCHOOL = `${API_URL}admin_auth/register_school`;
 
+const GET_PARENT_LOG = `${API_URL}admin/parents_log`;
+
 const LOGIN_ADMIN = `${API_URL}admin_auth/login_admin`;
 
-const LOGIN_PARENT = `${API_URL}parent/login_parent`;
+const GET_CHILDREN_LOG = `${API_URL}admin/children_log`;
+
+const GET_BUS_LOG = `${API_URL}admin/bus_log`;
+
+const GET_DRIVER_LOG = `${API_URL}admin/drivers_log`;
+
+//driver routes
 
 const LOGIN_DRIVER = `${API_URL}driver/login_driver`;
 
-const CHILD_DROP_ATTENDANCE = `${API_URL}driver/child_drop_attendance`;
+const CHILD_DROPPED_ATTENDANCE = `${API_URL}driver/child_dropped_attendance`;
 
 const CHILD_PICKED_ATTENDANCE = `${API_URL}driver/child_picked_attendance`;
 
@@ -48,23 +57,19 @@ const GET_DRIVER_ACTIVE_TRIPS = `${API_URL}driver/get_active_trips`;
 
 const START_TRIP = `${API_URL}driver/start_trip`;
 
-const GET_CHILD_TRIP = `${API_URL}parent/get_child_trip/`;
-
-const GET_PARENT_LOG = `${API_URL}admin/parents_log`;
-
-const GET_DRIVER_LOG = `${API_URL}admin/drivers_log`;
-
-const GET_CHILDREN_LOG = `${API_URL}admin/children_log`;
-
-const GET_BUS_LOG = `${API_URL}admin/bus_log`;
-
-const GET_CHILDREN_TRIPS = `${API_URL}parent/get_children_trip`;
-
 const GET_DRIVERS_CURRENT_TRIP_ATTENDANCE_LOG = `${API_URL}driver/get_trip_attendance`;
 
 const GET_DRIVER_CURRENT_SCHEDULED_TRIP = `${API_URL}driver/get_scheduled_trip`;
 
 const GET_ALL_DRIVER_SCHEDULED_TRIPS = `${API_URL}driver/get_scheduled_trips`;
+
+//parent routes
+
+const LOGIN_PARENT = `${API_URL}parent/login_parent`;
+
+const GET_CHILD_TRIP = `${API_URL}parent/get_child_trip/`;
+
+const GET_CHILDREN_TRIPS = `${API_URL}parent/get_children_trip`;
 
 export {
    API_URL,
@@ -81,7 +86,7 @@ export {
    LOGIN_ADMIN,
    LOGIN_DRIVER,
    LOGIN_PARENT,
-   CHILD_DROP_ATTENDANCE,
+   CHILD_DROPPED_ATTENDANCE,
    CHILD_PICKED_ATTENDANCE,
    DRIVER_DETAIL,
    END_TRIP,

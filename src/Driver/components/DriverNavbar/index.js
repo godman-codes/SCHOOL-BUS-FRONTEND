@@ -9,6 +9,8 @@ import { ReactComponent as Logo } from "../../../images/logo.svg";
 const DriverNavbar = ({ title }) => {
    const [active, setActive] = useState("nav_menu");
    const [icon, setIcon] = useState("nav_toggler");
+   const trip = JSON.parse(sessionStorage.getItem("trip"));
+
    const navToggle = () => {
       if (active === "nav_menu") {
          setActive("nav_menu nav_active");
@@ -39,6 +41,16 @@ const DriverNavbar = ({ title }) => {
                         <p>WorkSpace</p>
                      </Link>
                   </li>
+                  {trip ? (
+                     <li className="primary-nav">
+                        <Link
+                           to={`/driver_trip_tracker/${trip.id}`}
+                           style={{ textDecoration: "none" }}
+                        >
+                           <p>Track Page</p>
+                        </Link>
+                     </li>
+                  ) : null}
                   <li className="primary-nav">
                      <Link to="/attendance" style={{ textDecoration: "none" }}>
                         <p>Attendance</p>

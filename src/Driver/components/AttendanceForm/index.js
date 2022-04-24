@@ -15,8 +15,8 @@ const AttendanceForm = ({ text, handler }) => {
          alert("please fill all fields");
       } else {
          const data = {
-            firstName: firstName,
-            lastName: lastName,
+            first_name: firstName,
+            last_name: lastName,
             parent: parent,
          };
          e.preventDefault();
