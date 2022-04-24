@@ -1,48 +1,26 @@
 import {
-   API_URL,
-   GET_ADMIN_DETAILS,
-   GET_ACTIVE_TRIPS,
-   GET_NOTIFICATIONS,
-   GET_TRIP,
+   GET_ADMIN_SCHEDULED_TRIPS,
+   GET_ADMIN_ACTIVE_TRIPS,
    REGISTER_BUS,
    REGISTER_CHILD,
    REGISTER_DRIVER,
    REGISTER_PARENT,
    REGISTER_ROUTES,
    REGISTER_TRIP,
-   REGISTER_SCHOOL,
-   SEARCH_BUS,
-   SEARCH_CHILDREN,
-   SEARCH_DRIVER,
-   SEARCH_PARENT,
-   CHANGE_PASSWORD_ADMIN,
-   CHANGE_PASSWORD_DRIVER,
-   CHANGE_PASSWORD_PARENT,
    LOGIN_ADMIN,
    LOGIN_DRIVER,
    LOGIN_PARENT,
-   CHILD_DROP_ATTENDANCE,
-   CHILD_PICKED_ATTENDANCE,
-   DRIVER_DETAIL,
-   END_TRIP,
-   GET_DRIVERS_BUS,
    GET_DRIVERS_DEVICE_LOCATION,
-   GET_TRIPS,
-   START_TRIP,
-   GET_CHILD_TRIP,
-   GET_PARENT_NOTIFICATION,
-   GET_PARENT_DETAILS,
-   GET_ADMIN_REFRESH_TOKEN,
-   GET_DRIVER_REFRESH_TOKEN,
-   GET_PARENT_REFRESH_TOKEN,
    GET_PARENT_LOG,
    GET_DRIVER_LOG,
    GET_CHILDREN_LOG,
    GET_BUS_LOG,
    GET_CHILDREN_TRIPS,
-   GET_DRIVER_TRIPS,
-   GET_DRIVERS_ATTENDANCE_LOG,
-   GET_DRIVER_CURRENT_TRIP,
+   GET_DRIVER_ACTIVE_TRIPS,
+   GET_DRIVERS_CURRENT_TRIP_ATTENDANCE_LOG,
+   GET_DRIVER_CURRENT_SCHEDULED_TRIP,
+   GET_ALL_DRIVER_SCHEDULED_TRIPS,
+   STREAM_DRIVERS_LOCATION,
 } from "./config";
 
 const apiSetting = {
@@ -168,7 +146,7 @@ const apiSetting = {
    },
    getActiveTrips: async (bearer) => {
       const fetchActiveTrips = await (
-         await fetch(`${GET_ACTIVE_TRIPS}`, {
+         await fetch(`${GET_ADMIN_ACTIVE_TRIPS}`, {
             method: "GET",
             withCredentials: true,
             credentials: "include",
@@ -179,6 +157,20 @@ const apiSetting = {
          })
       ).json();
       return fetchActiveTrips;
+   },
+   getScheduledTrips: async (bearer) => {
+      const fetchScheduledTrips = await (
+         await fetch(`${GET_ADMIN_SCHEDULED_TRIPS}`, {
+            method: "GET",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return fetchScheduledTrips;
    },
    getParentLog: async (bearer) => {
       const fetchParentLog = await (
@@ -251,9 +243,9 @@ const apiSetting = {
       console.log("no error");
       return fetchChildrenTripsLog;
    },
-   getDriverTrips: async (bearer) => {
+   getDriverActiveTrips: async (bearer) => {
       const fetchDriverTrip = await (
-         await fetch(`${GET_DRIVER_TRIPS}`, {
+         await fetch(`${GET_DRIVER_ACTIVE_TRIPS}`, {
             method: "GET",
             withCredentials: true,
             credentials: "include",
@@ -265,9 +257,23 @@ const apiSetting = {
       ).json();
       return fetchDriverTrip;
    },
-   getDriversAttendance: async (bearer) => {
+   getDriverScheduledTrips: async (bearer) => {
+      const fetchDriverTrip = await (
+         await fetch(`${GET_ALL_DRIVER_SCHEDULED_TRIPS}`, {
+            method: "GET",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return fetchDriverTrip;
+   },
+   getDriversAttendance: async (bearer, id) => {
       const fetchDriverAttendance = await (
-         await fetch(`${GET_DRIVERS_ATTENDANCE_LOG}`, {
+         await fetch(`${GET_DRIVERS_CURRENT_TRIP_ATTENDANCE_LOG}/${id}`, {
             method: "GET",
             withCredentials: true,
             credentials: "include",
@@ -281,7 +287,7 @@ const apiSetting = {
    },
    getDriverCurrentTrip: async (bearer, id) => {
       const fetchTrip = await (
-         await fetch(`${GET_DRIVER_CURRENT_TRIP}/${id}`, {
+         await fetch(`${GET_DRIVER_CURRENT_SCHEDULED_TRIP}/${id}`, {
             method: "GET",
             withCredentials: true,
             credentials: "include",
@@ -293,6 +299,7 @@ const apiSetting = {
       ).json();
       return fetchTrip;
    },
+   // location api calls
    postDriverLocation: async (body, bearer) => {
       const postLocation = await (
          await fetch(`${GET_DRIVERS_DEVICE_LOCATION}`, {
@@ -307,6 +314,21 @@ const apiSetting = {
          })
       ).json();
       return postLocation;
+   },
+   streamDriversLocation: async (body, bearer, id) => {
+      const streamLocation = await (
+         await fetch(`${STREAM_DRIVERS_LOCATION}/${id}`, {
+            method: "PUT",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+         })
+      ).json();
+      return streamLocation;
    },
 };
 

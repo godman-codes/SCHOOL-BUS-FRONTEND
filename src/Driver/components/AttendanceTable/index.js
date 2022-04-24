@@ -17,15 +17,21 @@ const AttendanceTable = ({ attendance }) => {
                   </tr>
                </thead>
                <tbody>
-                  {attendance.map((att, i) => (
-                     <tr key={i}>
-                        <td>{att.id}</td>
-                        <td>{att.child_id}</td>
-                        <td>{att.child_name}</td>
-                        <td>{att.is_picked ? "True" : "False"}</td>
-                        <td>{att.is_dropped ? "True" : "False"}</td>
+                  {attendance.error ? (
+                     <tr>
+                        <td colSpan={5}>{attendance.error}</td>
                      </tr>
-                  ))}
+                  ) : (
+                     attendance.map((att, i) => (
+                        <tr key={i}>
+                           <td>{att.id}</td>
+                           <td>{att.child_id}</td>
+                           <td>{att.child_name}</td>
+                           <td>{att.is_picked ? "True" : "False"}</td>
+                           <td>{att.is_dropped ? "True" : "False"}</td>
+                        </tr>
+                     ))
+                  )}
                </tbody>
             </table>
          </Content>

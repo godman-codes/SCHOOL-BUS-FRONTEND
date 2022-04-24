@@ -6,6 +6,7 @@ import BusTable from "./Components/BusTable";
 
 const BusDetails = () => {
    const [buses, setBuses] = useState([]);
+   // eslint-disable-next-line no-unused-vars
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
    const [user] = useContext(Context);
@@ -31,6 +32,7 @@ const BusDetails = () => {
       const key = JSON.parse(access);
       console.table(buses);
       getBuses(key);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    return (

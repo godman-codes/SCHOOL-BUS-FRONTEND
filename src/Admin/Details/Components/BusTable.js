@@ -12,7 +12,6 @@ const BusTable = ({ buses }) => {
                      <td>Make</td>
                      <td>Capacity</td>
                      <td>initial Att</td>
-                     <td>Location</td>
                      <td>Active</td>
                      <td>Driver</td>
                   </tr>
@@ -24,7 +23,6 @@ const BusTable = ({ buses }) => {
                         <td>{bus.make}</td>
                         <td>{bus.capacity}</td>
                         <td>{bus.initial_attendance}</td>
-                        <td>{bus.current_location}</td>
                         <td>
                            <button
                               id={bus.active ? "active" : "notActive"}

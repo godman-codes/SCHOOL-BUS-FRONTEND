@@ -24,26 +24,32 @@ const DriverTable = ({ trip }) => {
                   </tr>
                </thead>
                <tbody>
-                  <tr>
-                     <td>{trip.date}</td>
-                     <td className="hide">{trip.start_timestamp}</td>
-                     <td className="hide">{trip.last_update_timestamp}</td>
-                     <td className="hide">{trip.latest_gps}</td>
-                     <td className="hide">{trip.bus_id}</td>
-                     <td>{trip.routes}</td>
-                     <td className="hide">{trip.end_timestamp}</td>
-                     <td>
-                        <button
-                           id="track"
-                           onClick={() => {
-                              navigate(`/driver_trip_tracker/${trip.id}`);
-                           }}
-                           style={{ cursor: "pointer" }}
-                        >
-                           Open
-                        </button>
-                     </td>
-                  </tr>
+                  {trip.error ? (
+                     <tr>
+                        <td colSpan="8">{trip.error}</td>
+                     </tr>
+                  ) : (
+                     <tr>
+                        <td>{trip.date}</td>
+                        <td className="hide">{trip.start_timestamp}</td>
+                        <td className="hide">{trip.last_update_timestamp}</td>
+                        <td className="hide">{trip.latest_gps}</td>
+                        <td className="hide">{trip.bus_id}</td>
+                        <td>{trip.routes}</td>
+                        <td className="hide">{trip.end_timestamp}</td>
+                        <td>
+                           <button
+                              id="track"
+                              onClick={() => {
+                                 navigate(`/driver_trip_tracker/${trip.id}`);
+                              }}
+                              style={{ cursor: "pointer" }}
+                           >
+                              Open
+                           </button>
+                        </td>
+                     </tr>
+                  )}
                </tbody>
             </table>
          </Content>

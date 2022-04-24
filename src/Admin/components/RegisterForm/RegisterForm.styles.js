@@ -6,10 +6,12 @@ export const Wrapper = styled.div`
    align-items: center;
 `;
 export const Content = styled.div`
-   width: 400px;
+   background-color: white;
+   width: 450px;
    display: flex;
    flex-direction: column;
    justify-content: center;
+   padding-right: 30px;
    #header {
       padding: 20px 0;
       display: flex;
@@ -63,6 +65,7 @@ export const Content = styled.div`
    }
    @media screen and (max-width: 768px) {
       width: 350px;
+      background-color: inherit;
       #form {
          div {
             height: 25px;

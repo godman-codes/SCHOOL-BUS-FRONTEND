@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import DriverNavbar from "./components/DriverNavbar";
 import Map from "./components/Maps/Maps";
 import API from "../API";
-import useGeoLocation from "../hooks/useGeoLocation";
+import useGeoLocationStream from "../hooks/useGeolocationStream";
 import { Wrapper } from "./components/DriverTripTracker.styles";
 
 const DriverTripTracker = () => {
@@ -11,7 +11,7 @@ const DriverTripTracker = () => {
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
    const [trip, setTrips] = useState({});
-   const { location, setTrackState } = useGeoLocation();
+   const { location, setTrackState } = useGeoLocationStream(id);
 
    const getTrip = async (identifier) => {
       try {
@@ -21,6 +21,7 @@ const DriverTripTracker = () => {
          console.log(fetchTrip);
          if (fetchTrip.message) {
             setTrips(fetchTrip.trip);
+            sessionStorage.setItem("trip", JSON.stringify(fetchTrip.trip));
          } else {
             setError(true);
             setErrorMessage(fetchTrip.error);
@@ -33,6 +34,7 @@ const DriverTripTracker = () => {
    useEffect(() => {
       getTrip(id);
    }, [id]);
+   console.log(location.coordinates);
 
    return (
       <>

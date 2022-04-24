@@ -15,15 +15,18 @@ const Attendance = () => {
    const getAttendance = async () => {
       try {
          const access = sessionStorage.getItem("driverAccess");
+         const driverTrip = JSON.parse(sessionStorage.getItem("trip"));
          const key = JSON.parse(access);
-         const fetchAttendance = await API.getDriversAttendance(key);
+         const fetchAttendance = await API.getDriversAttendance(
+            key,
+            driverTrip.id
+         );
          console.log(fetchAttendance);
          if (fetchAttendance.message) {
             setError(false);
             setAtt(fetchAttendance.attendance);
          } else {
-            setError(true);
-            setErrorMessage(fetchAttendance.error);
+            setAtt(fetchAttendance);
          }
       } catch (error) {
          setError(true);
@@ -40,8 +43,18 @@ const Attendance = () => {
          <DriverNavbar title="Godman Transports" />
          <br />
          <AttendanceForm text="Picked Att" />
+         <br />
          <AttendanceForm text="Dropped Att" />
          <AttendanceTable attendance={att} />
+         <br />
+         <br />
+         <br />
+         <br />
+         <br />
+         <br />
+         <br />
+         <br />
+         <br />
       </>
    );
 };

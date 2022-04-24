@@ -4,9 +4,9 @@ const API_URL = "http://127.0.0.1:5000/api/v1/";
 
 const GET_ADMIN_DETAILS = `${API_URL}admin/admin_details`;
 
-const GET_ACTIVE_TRIPS = `${API_URL}admin/get_active_trips`;
+const GET_ADMIN_ACTIVE_TRIPS = `${API_URL}admin/get_active_trips`;
 
-const GET_NOTIFICATIONS = `${API_URL}admin/get_notifications`;
+const GET_ADMIN_SCHEDULED_TRIPS = `${API_URL}admin/get_scheduled_trip`;
 
 const GET_TRIP = `${API_URL}admin/get_trip/`;
 
@@ -23,20 +23,6 @@ const REGISTER_ROUTES = `${API_URL}admin/register_routes`;
 const REGISTER_TRIP = `${API_URL}admin/register_trip`;
 
 const REGISTER_SCHOOL = `${API_URL}admin_auth/register_school`;
-
-const SEARCH_BUS = `${API_URL}admin/search_bus`;
-
-const SEARCH_CHILDREN = `${API_URL}admin/search_children`;
-
-const SEARCH_DRIVER = `${API_URL}admin/search_driver`;
-
-const SEARCH_PARENT = `${API_URL}admin/search_parent`;
-
-const CHANGE_PASSWORD_ADMIN = `${API_URL}admin_auth/change_password`;
-
-const CHANGE_PASSWORD_DRIVER = `${API_URL}driver/change_password`;
-
-const CHANGE_PASSWORD_PARENT = `${API_URL}parent/change_password`;
 
 const LOGIN_ADMIN = `${API_URL}admin_auth/login_admin`;
 
@@ -56,21 +42,13 @@ const GET_DRIVERS_BUS = `${API_URL}driver/get_drivers_bus`;
 
 const GET_DRIVERS_DEVICE_LOCATION = `${API_URL}driver/get_location`;
 
-const GET_DRIVER_TRIPS = `${API_URL}driver/get_trips`;
+const STREAM_DRIVERS_LOCATION = `${API_URL}driver/post_trip_location`;
+
+const GET_DRIVER_ACTIVE_TRIPS = `${API_URL}driver/get_active_trips`;
 
 const START_TRIP = `${API_URL}driver/start_trip`;
 
 const GET_CHILD_TRIP = `${API_URL}parent/get_child_trip/`;
-
-const GET_PARENT_NOTIFICATION = `${API_URL}parent/get_notifications`;
-
-const GET_PARENT_DETAILS = `${API_URL}parent/parent_detail`;
-
-const GET_ADMIN_REFRESH_TOKEN = `${API_URL}admin/token/refresh`;
-
-const GET_PARENT_REFRESH_TOKEN = `${API_URL}parent/token/refresh`;
-
-const GET_DRIVER_REFRESH_TOKEN = `${API_URL}driver/token/refresh`;
 
 const GET_PARENT_LOG = `${API_URL}admin/parents_log`;
 
@@ -82,15 +60,16 @@ const GET_BUS_LOG = `${API_URL}admin/bus_log`;
 
 const GET_CHILDREN_TRIPS = `${API_URL}parent/get_children_trip`;
 
-const GET_DRIVERS_ATTENDANCE_LOG = `${API_URL}driver/get_attendance`;
+const GET_DRIVERS_CURRENT_TRIP_ATTENDANCE_LOG = `${API_URL}driver/get_trip_attendance`;
 
-const GET_DRIVER_CURRENT_TRIP = `${API_URL}driver/get_trip`;
+const GET_DRIVER_CURRENT_SCHEDULED_TRIP = `${API_URL}driver/get_scheduled_trip`;
+
+const GET_ALL_DRIVER_SCHEDULED_TRIPS = `${API_URL}driver/get_scheduled_trips`;
 
 export {
    API_URL,
    GET_ADMIN_DETAILS,
-   GET_ACTIVE_TRIPS,
-   GET_NOTIFICATIONS,
+   GET_ADMIN_ACTIVE_TRIPS,
    GET_TRIP,
    REGISTER_BUS,
    REGISTER_CHILD,
@@ -99,13 +78,6 @@ export {
    REGISTER_ROUTES,
    REGISTER_TRIP,
    REGISTER_SCHOOL,
-   SEARCH_BUS,
-   SEARCH_CHILDREN,
-   SEARCH_DRIVER,
-   SEARCH_PARENT,
-   CHANGE_PASSWORD_ADMIN,
-   CHANGE_PASSWORD_DRIVER,
-   CHANGE_PASSWORD_PARENT,
    LOGIN_ADMIN,
    LOGIN_DRIVER,
    LOGIN_PARENT,
@@ -117,17 +89,15 @@ export {
    GET_DRIVERS_DEVICE_LOCATION,
    START_TRIP,
    GET_CHILD_TRIP,
-   GET_PARENT_NOTIFICATION,
-   GET_PARENT_DETAILS,
-   GET_ADMIN_REFRESH_TOKEN,
-   GET_DRIVER_REFRESH_TOKEN,
-   GET_PARENT_REFRESH_TOKEN,
    GET_PARENT_LOG,
    GET_DRIVER_LOG,
    GET_CHILDREN_LOG,
    GET_BUS_LOG,
    GET_CHILDREN_TRIPS,
-   GET_DRIVER_TRIPS,
-   GET_DRIVERS_ATTENDANCE_LOG,
-   GET_DRIVER_CURRENT_TRIP,
+   GET_DRIVER_ACTIVE_TRIPS,
+   GET_DRIVERS_CURRENT_TRIP_ATTENDANCE_LOG,
+   GET_DRIVER_CURRENT_SCHEDULED_TRIP,
+   GET_ALL_DRIVER_SCHEDULED_TRIPS,
+   GET_ADMIN_SCHEDULED_TRIPS,
+   STREAM_DRIVERS_LOCATION,
 };

@@ -18,21 +18,27 @@ const Table = ({ activeTrips }) => {
                   </tr>
                </thead>
                <tbody>
-                  {activeTrips.map((trip, i) => (
-                     <tr key={i}>
-                        <td>{trip.date}</td>
-                        <td>{trip.start_timestamp}</td>
-                        <td>{trip.last_update_timestamp}</td>
-                        <td>{trip.latest_gps}</td>
-                        <td>{trip.bus_id}</td>
-                        <td>
-                           <button id="active"></button>
-                        </td>
-                        <td>
-                           <button id="track">Track</button>
-                        </td>
+                  {activeTrips.error ? (
+                     <tr>
+                        <td colSpan="7">{activeTrips.error}</td>
                      </tr>
-                  ))}
+                  ) : (
+                     activeTrips.map((trip, i) => (
+                        <tr key={i}>
+                           <td>{trip.date}</td>
+                           <td>{trip.start_timestamp}</td>
+                           <td>{trip.last_update_timestamp}</td>
+                           <td>{trip.latest_gps}</td>
+                           <td>{trip.bus_id}</td>
+                           <td>
+                              <button id="active"></button>
+                           </td>
+                           <td>
+                              <button id="track">Track</button>
+                           </td>
+                        </tr>
+                     ))
+                  )}
                </tbody>
             </table>
          </Content>

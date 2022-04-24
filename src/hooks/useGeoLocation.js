@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import API from "../API";
 
 const useGeoLocation = () => {
-   const [trackState, setTrackState] = useState(false);
    const [location, setLocation] = useState({
       loaded: false,
       coordinates: { lat: 0.0, lng: 0.0 },
@@ -27,7 +26,6 @@ const useGeoLocation = () => {
          console.log(error);
       }
    };
-
    const onSuccess = (location) => {
       setLocation({
          loaded: true,
@@ -37,6 +35,24 @@ const useGeoLocation = () => {
          },
          accuracy: location.coords.accuracy,
       });
+      const body = {
+         location: JSON.stringify({
+            lat: location.coords.latitude,
+            lng: location.coords.longitude,
+         }),
+      };
+      handlePostLocation(body);
+      sessionStorage.setItem(
+         "driverLocation",
+         JSON.stringify({
+            loaded: false,
+            coordinates: {
+               lat: location.coords.latitude,
+               lng: location.coords.longitude,
+            },
+            accuracy: location.coords.accuracy,
+         })
+      );
    };
 
    const onError = (error) => {
@@ -54,34 +70,14 @@ const useGeoLocation = () => {
          });
       }
       navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
+      // const body = {
+      //    location: JSON.stringify(location.coordinates),
+      // };
+      // handlePostLocation(body);
    }, []);
-
-   useEffect(() => {
-      let interval = null;
-      console.log("track useEffect");
-      console.log(`trackState is ${trackState}`);
-      if (trackState) {
-         interval = setInterval(() => {
-            console.log("the interval is running");
-            navigator.geolocation.getCurrentPosition(
-               onSuccess,
-               onError,
-               options
-            );
-            const body = {
-               location: JSON.stringify(location.coordinates),
-            };
-            handlePostLocation(body);
-         }, 5000);
-      } else {
-         console.log("the interval is not running");
-         clearInterval(interval);
-      }
-      return () => clearInterval(interval);
-   }, [trackState]);
 
    console.log(location);
 
-   return { location, setTrackState };
+   return location;
 };
 export default useGeoLocation;

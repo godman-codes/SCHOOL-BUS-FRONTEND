@@ -3,8 +3,10 @@ import AdminNavbar from "./components/AdminNavbar";
 import { Context } from "../Context";
 import API from "../API";
 import Table from "./components/Table";
+import ScheduleTable from "./components/ScheduleTable";
 const AdminWorkspace = () => {
-   const [trips, setTrips] = useState([]);
+   const [activeTrips, setActiveTrips] = useState([]);
+   const [scheduledTrips, setScheduledTrips] = useState([]);
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
    const [user] = useContext(Context);
@@ -17,8 +19,25 @@ const AdminWorkspace = () => {
          const fetchTrips = await API.getActiveTrips(key);
          console.log(fetchTrips);
          if (fetchTrips.message) {
-            setTrips(fetchTrips.active_trips);
+            setActiveTrips(fetchTrips.active_trips);
          } else {
+            setActiveTrips(fetchTrips);
+         }
+      } catch (error) {
+         setError(true);
+         setErrorMessage("server error");
+      }
+   };
+   const getScheduledTrips = async () => {
+      try {
+         const access = sessionStorage.getItem("access");
+         const key = JSON.parse(access);
+         const fetchTrips = await API.getScheduledTrips(key);
+         console.log(fetchTrips);
+         if (fetchTrips.message) {
+            setScheduledTrips(fetchTrips.scheduled_trips);
+         } else {
+            setScheduledTrips(fetchTrips);
          }
       } catch (error) {
          setError(true);
@@ -27,13 +46,17 @@ const AdminWorkspace = () => {
    };
    useEffect(() => {
       getActiveTrips();
+      getScheduledTrips();
    }, []);
-   console.table(trips);
+   console.table(activeTrips);
+   console.table(scheduledTrips);
    return (
       <>
          <AdminNavbar title="Godman Transports" />
          <br />
-         <Table activeTrips={trips} />
+         <Table activeTrips={activeTrips} />
+         <br />
+         <ScheduleTable scheduledTrips={scheduledTrips} />
       </>
    );
 };

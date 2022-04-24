@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Button from "../../../components/Button";
-import { Wrapper, Content } from "./AttendanceForm.styles";
+import {
+   Wrapper,
+   Content,
+} from "../../../Admin/components/RegisterForm/RegisterForm.styles";
 
 const AttendanceForm = ({ text, handler }) => {
    const [firstName, setFirstName] = useState("");
@@ -33,30 +36,42 @@ const AttendanceForm = ({ text, handler }) => {
    };
    return (
       <Wrapper>
-         <h1>{text}</h1>
          <Content>
-            <label>First Name</label>
-            <input
-               type="text"
-               name="firstName"
-               value={firstName}
-               onChange={handleInput}
-            />
-            <label>Last Name</label>
-            <input
-               type="text"
-               name="lastName"
-               value={lastName}
-               onChange={handleInput}
-            />
-            <label>Parent</label>
-            <input
-               type="text"
-               name="parent"
-               value={parent}
-               onChange={handleInput}
-            />
-            <Button text="Take" callback={handleSubmit} />
+            <div id="header">
+               <h1>{text}</h1>
+            </div>
+            <div id="form">
+               <div>
+                  <label>First Name</label>
+                  <input
+                     type="text"
+                     name="firstName"
+                     value={firstName}
+                     onChange={handleInput}
+                  />
+               </div>
+               <div>
+                  <label>Last Name</label>
+                  <input
+                     type="text"
+                     name="lastName"
+                     value={lastName}
+                     onChange={handleInput}
+                  />
+               </div>
+               <div>
+                  <label>Parent</label>
+                  <input
+                     type="text"
+                     name="parent"
+                     value={parent}
+                     onChange={handleInput}
+                  />
+               </div>
+            </div>
+            <div id="action-handler">
+               <Button text="Take" callback={handleSubmit} />
+            </div>
          </Content>
       </Wrapper>
    );
