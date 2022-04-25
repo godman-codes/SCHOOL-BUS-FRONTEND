@@ -39,6 +39,8 @@ const DriverLogin = () => {
          {error && (
             <NavErrors errorMessage={errorMessage} setError={setError} />
          )}
+         <br />
+         <br />
          <LoginForm handler={handleLogin} />
       </>
    );

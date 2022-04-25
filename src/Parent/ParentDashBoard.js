@@ -1,33 +1,48 @@
 import React, { useState, useContext, useEffect } from "react";
 import DriverNavbar from "../Driver/components/DriverNavbar";
-import { Context } from "../Context";
+import ScheduledTable from "./components/Scheduletable";
+import ChildrenComponent from "./components/ChildrenComponent";
+// import { Context } from "../Context";
 import API from "../API";
-import Grid from "../components/Grid.js/index.js";
 import Thumb from "../components/Thumb";
 
 const ParentDashboard = () => {
    const key = JSON.parse(sessionStorage.getItem("parentAccess"));
-   const [children, setChildren] = useState([]);
+   const myKids = JSON.parse(localStorage.getItem("myKids"));
+   const [scheduledTrips, setScheduledTrips] = useState([]);
+   const [refresh, setRefresh] = useState(false);
    const [error, setError] = useState(false);
    const [errorMessage, setErrorMessage] = useState("");
-   const [user] = useContext(Context);
 
-   console.log(user);
-
+   const getChildrenScheduledTrip = async () => {
+      try {
+         const fetchTrips = await API.getParentScheduledChildrenTrips(key);
+         console.log(fetchTrips);
+         if (fetchTrips.message) {
+            setScheduledTrips(fetchTrips.children);
+            console.log(fetchTrips.children);
+         } else {
+            setScheduledTrips(fetchTrips);
+            console.log(fetchTrips);
+         }
+      } catch (error) {
+         setError(true);
+         setErrorMessage("server error");
+      }
+   };
    useEffect(() => {
-      // getChildrenTripsLog(key);
-   }, []);
+      getChildrenScheduledTrip();
+      console.log(myKids);
+   }, [refresh]);
 
-   console.log(children);
+   console.log(scheduledTrips);
    return (
       <>
          <DriverNavbar title="Godman Transports" />
          <br />
-         {/* <Grid header="My Kids">
-            {children.map((child) => (
-               <Thumb entity={child} key={child.id} />
-            ))}
-         </Grid> */}
+         <ChildrenComponent kids={myKids} />
+         <br />
+         <ScheduledTable scheduledTrips={scheduledTrips} />
       </>
    );
 };

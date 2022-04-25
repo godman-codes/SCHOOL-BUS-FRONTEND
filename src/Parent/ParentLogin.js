@@ -22,6 +22,10 @@ const ParentLogin = () => {
                "parentAccess",
                JSON.stringify(loginParentToken.parent.access)
             );
+            localStorage.setItem(
+               "myKids",
+               JSON.stringify(loginParentToken.parent.children)
+            );
             setUser({ parent: loginParentToken.parent });
             setError(false);
             navigate("/parent_dashboard");
@@ -41,7 +45,8 @@ const ParentLogin = () => {
          {error && (
             <NavErrors errorMessage={errorMessage} setError={setError} />
          )}
-
+         <br />
+         <br />
          <LoginForm handler={handleLogin} />
       </>
    );

@@ -69,7 +69,7 @@ const LOGIN_PARENT = `${API_URL}parent/login_parent`;
 
 const GET_CHILD_TRIP = `${API_URL}parent/get_child_trip/`;
 
-const GET_CHILDREN_TRIPS = `${API_URL}parent/get_children_trip`;
+const GET_PARENT_SCHEDULED_CHILDREN_TRIPS = `${API_URL}parent/get_scheduled_children_trip`;
 
 export {
    API_URL,
@@ -98,7 +98,7 @@ export {
    GET_DRIVER_LOG,
    GET_CHILDREN_LOG,
    GET_BUS_LOG,
-   GET_CHILDREN_TRIPS,
+   GET_PARENT_SCHEDULED_CHILDREN_TRIPS,
    GET_DRIVER_ACTIVE_TRIPS,
    GET_DRIVERS_CURRENT_TRIP_ATTENDANCE_LOG,
    GET_DRIVER_CURRENT_SCHEDULED_TRIP,

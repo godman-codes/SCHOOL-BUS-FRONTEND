@@ -1,18 +1,10 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
-   /* max-width: var(--maxWidth); */
-   display: inline;
-
-   @media screen and (max-width: 700px) {
-      margin: 0 auto;
-      padding: 0 auto;
-      display: block;
-   }
-`;
+export const Wrapper = styled.div``;
 export const Content = styled.div`
    display: flex;
    justify-content: center;
+   flex-wrap: wrap;
    @media screen and (max-width: 700px) {
       display: block;
       align-items: center;

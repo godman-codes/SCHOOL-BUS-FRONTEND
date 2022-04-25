@@ -7,6 +7,7 @@ import DriverScheduleTable from "./components/DriverScheduleTable";
 import useGeoLocation from "../hooks/useGeoLocation";
 
 const DriverWorkspace = () => {
+   const key = JSON.parse(sessionStorage.getItem("driverAccess"));
    const [trip, setTrips] = useState({});
    const [scheduleTrips, setScheduleTrips] = useState([]);
    const [error, setError] = useState(false);
@@ -18,8 +19,6 @@ const DriverWorkspace = () => {
 
    const getActiveDriverTrips = async () => {
       try {
-         const access = sessionStorage.getItem("driverAccess");
-         const key = JSON.parse(access);
          const fetchTrips = await API.getDriverActiveTrips(key);
          console.log(fetchTrips);
          if (fetchTrips.message) {
@@ -34,8 +33,6 @@ const DriverWorkspace = () => {
    };
    const getDriverScheduleTrips = async () => {
       try {
-         const access = sessionStorage.getItem("driverAccess");
-         const key = JSON.parse(access);
          const fetchTrips = await API.getDriverScheduledTrips(key);
          console.log(fetchTrips);
          if (fetchTrips.message) {
