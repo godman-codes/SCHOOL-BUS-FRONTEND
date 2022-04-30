@@ -83,7 +83,6 @@ export const Content = styled.div`
          background: var(--darkGrey);
          flex-direction: column;
          transform: translateX(100%);
-         transition: 0.5s ease-in;
          z-index: 1;
          li:hover ul {
             border-radius: 10px;
@@ -111,6 +110,7 @@ export const Content = styled.div`
       transform: translate(0%);
       padding-left: 15px;
       width: 200px;
+      transition: 0.5s ease-in;
    }
    .toggle .line1 {
       transform: rotate(-45deg) translate(-4px, 5px);

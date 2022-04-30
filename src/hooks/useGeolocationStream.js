@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import API from "../API";
 
 const useGeoLocationStream = (id) => {
-   const [trackState, setTrackState] = useState(false);
+   const initialTrackState = sessionStorage.getItem("TrackState");
+   const [trackState, setTrackState] = useState(initialTrackState);
    const [location, setLocation] = useState(
       JSON.parse(sessionStorage.getItem("driverLocation"))
    );
@@ -62,11 +63,7 @@ const useGeoLocationStream = (id) => {
                onError,
                options
             );
-            // const body = {
-            //    location: JSON.stringify(location.coordinates),
-            // };
-            // streamLocation(body);
-         }, 5000);
+         }, 30000);
       } else {
          console.log("the interval is not running");
          clearInterval(interval);

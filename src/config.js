@@ -7,7 +7,7 @@ const GET_ADMIN_DETAILS = `${API_URL}admin/admin_details`;
 
 const GET_ADMIN_ACTIVE_TRIPS = `${API_URL}admin/get_active_trips`;
 
-const GET_ADMIN_SCHEDULED_TRIPS = `${API_URL}admin/get_scheduled_trip`;
+const GET_ADMIN_SCHEDULED_TRIPS = `${API_URL}admin/get_scheduled_trips`;
 
 const GET_TRIP = `${API_URL}admin/get_trip/`;
 
@@ -64,12 +64,17 @@ const GET_DRIVER_CURRENT_SCHEDULED_TRIP = `${API_URL}driver/get_scheduled_trip`;
 const GET_ALL_DRIVER_SCHEDULED_TRIPS = `${API_URL}driver/get_scheduled_trips`;
 
 //parent routes
+const GET_CHILD_TRIP_LOCATION = `${API_URL}parent/get_trip_child_location`;
 
 const LOGIN_PARENT = `${API_URL}parent/login_parent`;
 
 const GET_CHILD_TRIP = `${API_URL}parent/get_child_trip/`;
 
 const GET_PARENT_SCHEDULED_CHILDREN_TRIPS = `${API_URL}parent/get_scheduled_children_trip`;
+
+const GET_CURRENT_KID_ACTIVE_TRIP = `${API_URL}parent/get_child_active_trip`;
+
+const GET_MORNING_TRIPS = `${API_URL}parent/get_morning_trips`;
 
 export {
    API_URL,
@@ -105,4 +110,7 @@ export {
    GET_ALL_DRIVER_SCHEDULED_TRIPS,
    GET_ADMIN_SCHEDULED_TRIPS,
    STREAM_DRIVERS_LOCATION,
+   GET_CURRENT_KID_ACTIVE_TRIP,
+   GET_MORNING_TRIPS,
+   GET_CHILD_TRIP_LOCATION,
 };

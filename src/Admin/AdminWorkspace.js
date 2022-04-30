@@ -42,6 +42,7 @@ const AdminWorkspace = () => {
       } catch (error) {
          setError(true);
          setErrorMessage("server error");
+         console.log(error);
       }
    };
    useEffect(() => {

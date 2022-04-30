@@ -33,6 +33,9 @@ const Map = ({ center }) => {
             center={center}
             zoom={16}
             onLoad={(map) => setMap(map)}
+            onCenterChanged={(map) => {
+               setMap(map);
+            }}
          >
             <Marker position={center} />
             {/* Child components, such as markers, info windows, etc. */}

@@ -22,7 +22,7 @@ const ParentLogin = () => {
                "parentAccess",
                JSON.stringify(loginParentToken.parent.access)
             );
-            localStorage.setItem(
+            sessionStorage.setItem(
                "myKids",
                JSON.stringify(loginParentToken.parent.children)
             );

@@ -50,7 +50,10 @@ const App = () => (
                <Route path="/bus_details" element={<BusDetails />} />
                <Route path="/logout" element={<Logout />} />
                <Route path="/attendance" element={<Attendance />} />
-               <Route path="/parent_track/:id" element={<ParentTrackPage />} />
+               <Route
+                  path="/parent_track/:id/:child_id"
+                  element={<ParentTrackPage />}
+               />
                <Route
                   path="/driver_trip_tracker/:id"
                   element={<DriverTripTracker />}

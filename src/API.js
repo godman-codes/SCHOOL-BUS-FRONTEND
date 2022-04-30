@@ -25,6 +25,9 @@ import {
    END_TRIP,
    CHILD_PICKED_ATTENDANCE,
    CHILD_DROPPED_ATTENDANCE,
+   GET_CURRENT_KID_ACTIVE_TRIP,
+   GET_MORNING_TRIPS,
+   GET_CHILD_TRIP_LOCATION,
 } from "./config";
 
 const apiSetting = {
@@ -355,6 +358,7 @@ const apiSetting = {
       return postLocation;
    },
    streamDriversLocation: async (body, bearer, id) => {
+      console.log("api");
       const streamLocation = await (
          await fetch(`${STREAM_DRIVERS_LOCATION}/${id}`, {
             method: "PUT",
@@ -393,6 +397,48 @@ const apiSetting = {
          })
       ).json();
       return fetchChildrenTripsLog;
+   },
+   getCurrentChildActiveTrip: async (bearer, id) => {
+      const fetchCurrentChildTrip = await (
+         await fetch(`${GET_CURRENT_KID_ACTIVE_TRIP}/${id}`, {
+            method: "GET",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return fetchCurrentChildTrip;
+   },
+   getMorningTrips: async (bearer) => {
+      const fetchMorningTrips = await (
+         await fetch(`${GET_MORNING_TRIPS}`, {
+            method: "GET",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return fetchMorningTrips;
+   },
+   getChildTripLocation: async (bearer, id, child_id) => {
+      const fetchChildTripLocation = await (
+         await fetch(`${GET_CHILD_TRIP_LOCATION}/${id}/${child_id}`, {
+            method: "GET",
+            withCredentials: true,
+            credentials: "include",
+            headers: {
+               Authorization: "Bearer " + bearer,
+               "Content-Type": "application/json",
+            },
+         })
+      ).json();
+      return fetchChildTripLocation;
    },
 };
 

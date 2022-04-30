@@ -38,7 +38,9 @@ const DriverTripTracker = () => {
          const startTrip = await API.startCurrentTrip(key, identifier);
          if (startTrip.message) {
             setTrackState(true);
+            sessionStorage.setItem("TrackState", JSON.stringify(true));
          } else {
+            console.log(startTrip.error);
             setError(true);
             setErrorMessage(startTrip.error);
          }
@@ -56,6 +58,7 @@ const DriverTripTracker = () => {
             console.log(endTrip.message);
             sessionStorage.removeItem("trip");
             sessionStorage.removeItem("driverLocation");
+            sessionStorage.removeItem("TrackState");
             setTimeout(() => {
                navigate("/driver_workspace");
             }, 1500);
