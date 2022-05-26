@@ -42,9 +42,9 @@ const RegisterForm = () => {
                </div>
             </div>
             <div id="action-handler">
-               <p>
+               <small>
                   Already registered <Link to="/admin_login">Login</Link>
-               </p>
+               </small>
                <Button id="btn" text="Register" />
             </div>
          </Content>

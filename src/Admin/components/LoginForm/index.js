@@ -49,10 +49,10 @@ const LoginForm = ({ handler }) => {
                </div>
             </div>
             <div id="action-handler">
-               <p>
+               <small>
                   Don't have an account
                   <Link to="/admin_register">Register</Link>
-               </p>
+               </small>
                <Button text="Login" callback={handleLogin} />
             </div>
          </Content>
